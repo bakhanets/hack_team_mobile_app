@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hack_team_flutter_app/injection_container.dart';
+import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
+import 'package:hack_team_flutter_app/screens/document_screen.dart';
+import 'package:hack_team_flutter_app/screens/main_screen.dart';
+import 'package:hack_team_flutter_app/screens/profile_screen.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedItem = 0;
+
+  void onTapNavBar(int index) {
+    if (index == 0) {
+      sl<BottomNavBarBloc>().add(ToMainBottomNavBarEvent());
+    } else if (index == 1) {
+      sl<BottomNavBarBloc>().add(ToDocumentBottomNavBarEvent());
+    } else {
+      sl<BottomNavBarBloc>().add(ToProfileBottomNavBarEvent());
+    }
+    setState(() {
+      selectedItem = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: BlocBuilder<BottomNavBarBloc, BottomNavBarState>(
+        builder: (context, state) {
+          return state.when(
+            document: () => DocumentScreen(),
+            profile: () => ProfileScreen(),
+            main: () => MainScreen(),
+          );
+        },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedItem,
+        onTap: onTapNavBar,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.document_scanner), label: 'Документы'),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Профиль'),
+        ],
+      ),
+    );
+  }
+}
