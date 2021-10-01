@@ -9,7 +9,8 @@ class NavigationPagesEvent with _$NavigationPagesEvent {
 
   const factory NavigationPagesEvent.toHome() = ToHomeNavigationPagesEvent;
 
-  const factory NavigationPagesEvent.toDetail() = ToDetailNavigationPagesEvent;
+  const factory NavigationPagesEvent.toDetailProject(int id) =
+      ToDetailProjectNavigationPagesEvent;
 }
 
 @freezed
@@ -18,7 +19,8 @@ class NavigationPagesState with _$NavigationPagesState {
 
   const factory NavigationPagesState.home() = HomeNavigationPagesState;
 
-  const factory NavigationPagesState.detail() = DetailNavigationPagesState;
+  const factory NavigationPagesState.detailProject(int id) =
+      DetailProjectNavigationPagesState;
 }
 
 class NavigationPagesBloc
@@ -29,14 +31,14 @@ class NavigationPagesBloc
   Stream<NavigationPagesState> mapEventToState(NavigationPagesEvent event) =>
       event.when<Stream<NavigationPagesState>>(
         toHome: _toHome,
-        toDetail: _toDetail,
+        toDetailProject: _toDetailProject,
       );
 
   Stream<NavigationPagesState> _toHome() async* {
     yield HomeNavigationPagesState();
   }
 
-  Stream<NavigationPagesState> _toDetail() async* {
-    yield DetailNavigationPagesState();
+  Stream<NavigationPagesState> _toDetailProject(int id) async* {
+    yield DetailProjectNavigationPagesState(id);
   }
 }

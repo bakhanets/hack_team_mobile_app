@@ -1,4 +1,6 @@
+import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/detail_project_model.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/project_model.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/task/task_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'dart:developer';
@@ -14,12 +16,6 @@ enum FetchMethod {
 class ApiRedmine {
   final SharedPreferences sharedPreferences;
   final http.Client _client = http.Client();
-
-  // static http.HttpClient client = new HttpClient()
-  //   ..badCertificateCallback = (_certificateCheck);
-
-  // static bool _certificateCheck(X509Certificate cert, String host, int port) =>
-  //     host == 'local.domain.ext';
 
   ApiRedmine({required this.sharedPreferences});
 
@@ -93,21 +89,17 @@ class ApiRedmine {
     );
   }
 
-  // Future<bool> uploadImage(PhotoModel photo) async {
-  //   var url = 'https://kleninm.com/api/download/image';
-  //   return fetchBool(
-  //     urlPath: url,
-  //     method: FetchMethod.post,
-  //     body: utf8.encode(json.encode(photo.toJson())),
-  //   );
-  // }
+  Future<List<TaskModel>> getListTasks() async {
+    return getEntity<List<TaskModel>>(
+      'https://kleninm.com/api/redmine/get-projects',
+      (data) => (data as List).map((e) => TaskModel.fromJson(e)).toList(),
+    );
+  }
 
-  // @override
-  // Future<AccountModel> getAccountMe() async {
-  //   log('get account me');
-  //   return getEntity<AccountModel>(
-  //     'https://app.tradergram.pro/api/v1/user/me',
-  //     (data) => AccountModel.fromJson(data),
-  //   );
-  // }
+  Future<DetailProjectModel> getProjectById(int id) async {
+    return getEntity<DetailProjectModel>(
+      'https://kleninm.com/api/redmine/get-projects',
+      (data) => DetailProjectModel.fromJson(data),
+    );
+  }
 }

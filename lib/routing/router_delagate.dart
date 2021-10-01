@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hack_team_flutter_app/redmine/presentation/pages/detail_project_page.dart';
 import 'package:hack_team_flutter_app/routing/bloc/navigation_pages_bloc.dart';
-import 'package:hack_team_flutter_app/screens/detail_screen.dart';
 import 'package:hack_team_flutter_app/screens/home_screen.dart';
 
 class MainRouterDelegate extends RouterDelegate<String>
@@ -24,13 +24,13 @@ class MainRouterDelegate extends RouterDelegate<String>
         print(state);
         final _pages = [
           state.when(
-            detail: () => MaterialPage(
-              key: ValueKey('detail'),
-              child: DetailScreen(),
-            ),
             home: () => MaterialPage(
               key: ValueKey('home'),
               child: HomeScreen(),
+            ),
+            detailProject: (int id) => MaterialPage(
+              key: ValueKey('detail'),
+              child: DetailProjectPage(id: id),
             ),
           ),
         ];

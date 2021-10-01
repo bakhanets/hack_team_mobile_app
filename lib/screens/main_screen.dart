@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
             Text('Main Screen'),
             TextButton(
               onPressed: () {
-                sl<NavigationPagesBloc>().add(ToDetailNavigationPagesEvent());
+                // sl<NavigationPagesBloc>().add(ToDetailProjectNavigationPagesEvent());
               },
               child: Text('Открыть Detail Screen'),
             )
