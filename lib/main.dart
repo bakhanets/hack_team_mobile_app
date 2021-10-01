@@ -6,9 +6,9 @@ import 'package:hack_team_flutter_app/routing/bloc/navigation_pages_bloc.dart';
 import 'package:hack_team_flutter_app/routing/main_router_info_parser.dart';
 import 'package:hack_team_flutter_app/routing/router_delagate.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  init();
+  await init();
   runApp(
     MultiBlocProvider(
       providers: [
