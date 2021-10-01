@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
 import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
-import 'package:hack_team_flutter_app/screens/document_screen.dart';
+import 'package:hack_team_flutter_app/screens/redmine_screen.dart';
 import 'package:hack_team_flutter_app/screens/main_screen.dart';
 import 'package:hack_team_flutter_app/screens/profile_screen.dart';
 
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: BlocBuilder<BottomNavBarBloc, BottomNavBarState>(
         builder: (context, state) {
           return state.when(
-            document: () => DocumentScreen(),
+            document: () => RedmineScreen(),
             profile: () => ProfileScreen(),
             main: () => MainScreen(),
           );
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.document_scanner), label: 'Документы'),
+              icon: Icon(Icons.document_scanner), label: 'Redmine'),
           BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Профиль'),
         ],
       ),
