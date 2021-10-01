@@ -17,20 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TaskEventTearOff {
   const _$TaskEventTearOff();
 
-  CreateTaskEvent create() {
-    return const CreateTaskEvent();
-  }
-
   ReadTaskEvent read() {
     return const ReadTaskEvent();
-  }
-
-  UpdateTaskEvent update() {
-    return const UpdateTaskEvent();
-  }
-
-  DeleteTaskEvent delete() {
-    return const DeleteTaskEvent();
   }
 }
 
@@ -41,51 +29,33 @@ const $TaskEvent = _$TaskEventTearOff();
 mixin _$TaskEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() create,
     required TResult Function() read,
-    required TResult Function() update,
-    required TResult Function() delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? create,
     TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
     TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CreateTaskEvent value) create,
     required TResult Function(ReadTaskEvent value) read,
-    required TResult Function(UpdateTaskEvent value) update,
-    required TResult Function(DeleteTaskEvent value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
     TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
     TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -104,122 +74,6 @@ class _$TaskEventCopyWithImpl<$Res> implements $TaskEventCopyWith<$Res> {
   final TaskEvent _value;
   // ignore: unused_field
   final $Res Function(TaskEvent) _then;
-}
-
-/// @nodoc
-abstract class $CreateTaskEventCopyWith<$Res> {
-  factory $CreateTaskEventCopyWith(
-          CreateTaskEvent value, $Res Function(CreateTaskEvent) then) =
-      _$CreateTaskEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$CreateTaskEventCopyWithImpl<$Res> extends _$TaskEventCopyWithImpl<$Res>
-    implements $CreateTaskEventCopyWith<$Res> {
-  _$CreateTaskEventCopyWithImpl(
-      CreateTaskEvent _value, $Res Function(CreateTaskEvent) _then)
-      : super(_value, (v) => _then(v as CreateTaskEvent));
-
-  @override
-  CreateTaskEvent get _value => super._value as CreateTaskEvent;
-}
-
-/// @nodoc
-
-class _$CreateTaskEvent extends CreateTaskEvent {
-  const _$CreateTaskEvent() : super._();
-
-  @override
-  String toString() {
-    return 'TaskEvent.create()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is CreateTaskEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() create,
-    required TResult Function() read,
-    required TResult Function() update,
-    required TResult Function() delete,
-  }) {
-    return create();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? create,
-    TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
-  }) {
-    return create?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
-    TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
-    required TResult orElse(),
-  }) {
-    if (create != null) {
-      return create();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CreateTaskEvent value) create,
-    required TResult Function(ReadTaskEvent value) read,
-    required TResult Function(UpdateTaskEvent value) update,
-    required TResult Function(DeleteTaskEvent value) delete,
-  }) {
-    return create(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
-    TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
-  }) {
-    return create?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
-    TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
-    required TResult orElse(),
-  }) {
-    if (create != null) {
-      return create(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class CreateTaskEvent extends TaskEvent {
-  const factory CreateTaskEvent() = _$CreateTaskEvent;
-  const CreateTaskEvent._() : super._();
 }
 
 /// @nodoc
@@ -261,10 +115,7 @@ class _$ReadTaskEvent extends ReadTaskEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() create,
     required TResult Function() read,
-    required TResult Function() update,
-    required TResult Function() delete,
   }) {
     return read();
   }
@@ -272,10 +123,7 @@ class _$ReadTaskEvent extends ReadTaskEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? create,
     TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
   }) {
     return read?.call();
   }
@@ -283,10 +131,7 @@ class _$ReadTaskEvent extends ReadTaskEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
     TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
     required TResult orElse(),
   }) {
     if (read != null) {
@@ -298,10 +143,7 @@ class _$ReadTaskEvent extends ReadTaskEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CreateTaskEvent value) create,
     required TResult Function(ReadTaskEvent value) read,
-    required TResult Function(UpdateTaskEvent value) update,
-    required TResult Function(DeleteTaskEvent value) delete,
   }) {
     return read(this);
   }
@@ -309,10 +151,7 @@ class _$ReadTaskEvent extends ReadTaskEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
     TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
   }) {
     return read?.call(this);
   }
@@ -320,10 +159,7 @@ class _$ReadTaskEvent extends ReadTaskEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
     TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
     required TResult orElse(),
   }) {
     if (read != null) {
@@ -339,250 +175,14 @@ abstract class ReadTaskEvent extends TaskEvent {
 }
 
 /// @nodoc
-abstract class $UpdateTaskEventCopyWith<$Res> {
-  factory $UpdateTaskEventCopyWith(
-          UpdateTaskEvent value, $Res Function(UpdateTaskEvent) then) =
-      _$UpdateTaskEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$UpdateTaskEventCopyWithImpl<$Res> extends _$TaskEventCopyWithImpl<$Res>
-    implements $UpdateTaskEventCopyWith<$Res> {
-  _$UpdateTaskEventCopyWithImpl(
-      UpdateTaskEvent _value, $Res Function(UpdateTaskEvent) _then)
-      : super(_value, (v) => _then(v as UpdateTaskEvent));
-
-  @override
-  UpdateTaskEvent get _value => super._value as UpdateTaskEvent;
-}
-
-/// @nodoc
-
-class _$UpdateTaskEvent extends UpdateTaskEvent {
-  const _$UpdateTaskEvent() : super._();
-
-  @override
-  String toString() {
-    return 'TaskEvent.update()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is UpdateTaskEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() create,
-    required TResult Function() read,
-    required TResult Function() update,
-    required TResult Function() delete,
-  }) {
-    return update();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? create,
-    TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
-  }) {
-    return update?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
-    TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
-    required TResult orElse(),
-  }) {
-    if (update != null) {
-      return update();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CreateTaskEvent value) create,
-    required TResult Function(ReadTaskEvent value) read,
-    required TResult Function(UpdateTaskEvent value) update,
-    required TResult Function(DeleteTaskEvent value) delete,
-  }) {
-    return update(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
-    TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
-  }) {
-    return update?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
-    TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
-    required TResult orElse(),
-  }) {
-    if (update != null) {
-      return update(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UpdateTaskEvent extends TaskEvent {
-  const factory UpdateTaskEvent() = _$UpdateTaskEvent;
-  const UpdateTaskEvent._() : super._();
-}
-
-/// @nodoc
-abstract class $DeleteTaskEventCopyWith<$Res> {
-  factory $DeleteTaskEventCopyWith(
-          DeleteTaskEvent value, $Res Function(DeleteTaskEvent) then) =
-      _$DeleteTaskEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$DeleteTaskEventCopyWithImpl<$Res> extends _$TaskEventCopyWithImpl<$Res>
-    implements $DeleteTaskEventCopyWith<$Res> {
-  _$DeleteTaskEventCopyWithImpl(
-      DeleteTaskEvent _value, $Res Function(DeleteTaskEvent) _then)
-      : super(_value, (v) => _then(v as DeleteTaskEvent));
-
-  @override
-  DeleteTaskEvent get _value => super._value as DeleteTaskEvent;
-}
-
-/// @nodoc
-
-class _$DeleteTaskEvent extends DeleteTaskEvent {
-  const _$DeleteTaskEvent() : super._();
-
-  @override
-  String toString() {
-    return 'TaskEvent.delete()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is DeleteTaskEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() create,
-    required TResult Function() read,
-    required TResult Function() update,
-    required TResult Function() delete,
-  }) {
-    return delete();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? create,
-    TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
-  }) {
-    return delete?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? create,
-    TResult Function()? read,
-    TResult Function()? update,
-    TResult Function()? delete,
-    required TResult orElse(),
-  }) {
-    if (delete != null) {
-      return delete();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(CreateTaskEvent value) create,
-    required TResult Function(ReadTaskEvent value) read,
-    required TResult Function(UpdateTaskEvent value) update,
-    required TResult Function(DeleteTaskEvent value) delete,
-  }) {
-    return delete(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
-    TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
-  }) {
-    return delete?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(CreateTaskEvent value)? create,
-    TResult Function(ReadTaskEvent value)? read,
-    TResult Function(UpdateTaskEvent value)? update,
-    TResult Function(DeleteTaskEvent value)? delete,
-    required TResult orElse(),
-  }) {
-    if (delete != null) {
-      return delete(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DeleteTaskEvent extends TaskEvent {
-  const factory DeleteTaskEvent() = _$DeleteTaskEvent;
-  const DeleteTaskEvent._() : super._();
-}
-
-/// @nodoc
 class _$TaskStateTearOff {
   const _$TaskStateTearOff();
-
-  InitialTaskState initial() {
-    return const InitialTaskState();
-  }
 
   LoadingTaskState loading() {
     return const LoadingTaskState();
   }
 
-  LoadedTaskState loaded(List<dynamic> result) {
+  LoadedTaskState loaded(List<TaskModel> result) {
     return LoadedTaskState(
       result,
     );
@@ -600,32 +200,28 @@ const $TaskState = _$TaskStateTearOff();
 mixin _$TaskState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<dynamic> result) loaded,
+    required TResult Function(List<TaskModel> result) loaded,
     required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
+    TResult Function(List<TaskModel> result)? loaded,
     TResult Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
+    TResult Function(List<TaskModel> result)? loaded,
     TResult Function()? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitialTaskState value) initial,
     required TResult Function(LoadingTaskState value) loading,
     required TResult Function(LoadedTaskState value) loaded,
     required TResult Function(FailureTaskState value) failure,
@@ -633,7 +229,6 @@ mixin _$TaskState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
     TResult Function(LoadingTaskState value)? loading,
     TResult Function(LoadedTaskState value)? loaded,
     TResult Function(FailureTaskState value)? failure,
@@ -641,7 +236,6 @@ mixin _$TaskState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
     TResult Function(LoadingTaskState value)? loading,
     TResult Function(LoadedTaskState value)? loaded,
     TResult Function(FailureTaskState value)? failure,
@@ -663,122 +257,6 @@ class _$TaskStateCopyWithImpl<$Res> implements $TaskStateCopyWith<$Res> {
   final TaskState _value;
   // ignore: unused_field
   final $Res Function(TaskState) _then;
-}
-
-/// @nodoc
-abstract class $InitialTaskStateCopyWith<$Res> {
-  factory $InitialTaskStateCopyWith(
-          InitialTaskState value, $Res Function(InitialTaskState) then) =
-      _$InitialTaskStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$InitialTaskStateCopyWithImpl<$Res> extends _$TaskStateCopyWithImpl<$Res>
-    implements $InitialTaskStateCopyWith<$Res> {
-  _$InitialTaskStateCopyWithImpl(
-      InitialTaskState _value, $Res Function(InitialTaskState) _then)
-      : super(_value, (v) => _then(v as InitialTaskState));
-
-  @override
-  InitialTaskState get _value => super._value as InitialTaskState;
-}
-
-/// @nodoc
-
-class _$InitialTaskState extends InitialTaskState {
-  const _$InitialTaskState() : super._();
-
-  @override
-  String toString() {
-    return 'TaskState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitialTaskState);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<dynamic> result) loaded,
-    required TResult Function() failure,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
-    TResult Function()? failure,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitialTaskState value) initial,
-    required TResult Function(LoadingTaskState value) loading,
-    required TResult Function(LoadedTaskState value) loaded,
-    required TResult Function(FailureTaskState value) failure,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
-    TResult Function(LoadingTaskState value)? loading,
-    TResult Function(LoadedTaskState value)? loaded,
-    TResult Function(FailureTaskState value)? failure,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
-    TResult Function(LoadingTaskState value)? loading,
-    TResult Function(LoadedTaskState value)? loaded,
-    TResult Function(FailureTaskState value)? failure,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class InitialTaskState extends TaskState {
-  const factory InitialTaskState() = _$InitialTaskState;
-  const InitialTaskState._() : super._();
 }
 
 /// @nodoc
@@ -820,9 +298,8 @@ class _$LoadingTaskState extends LoadingTaskState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<dynamic> result) loaded,
+    required TResult Function(List<TaskModel> result) loaded,
     required TResult Function() failure,
   }) {
     return loading();
@@ -831,9 +308,8 @@ class _$LoadingTaskState extends LoadingTaskState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
+    TResult Function(List<TaskModel> result)? loaded,
     TResult Function()? failure,
   }) {
     return loading?.call();
@@ -842,9 +318,8 @@ class _$LoadingTaskState extends LoadingTaskState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
+    TResult Function(List<TaskModel> result)? loaded,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -857,7 +332,6 @@ class _$LoadingTaskState extends LoadingTaskState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitialTaskState value) initial,
     required TResult Function(LoadingTaskState value) loading,
     required TResult Function(LoadedTaskState value) loaded,
     required TResult Function(FailureTaskState value) failure,
@@ -868,7 +342,6 @@ class _$LoadingTaskState extends LoadingTaskState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
     TResult Function(LoadingTaskState value)? loading,
     TResult Function(LoadedTaskState value)? loaded,
     TResult Function(FailureTaskState value)? failure,
@@ -879,7 +352,6 @@ class _$LoadingTaskState extends LoadingTaskState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
     TResult Function(LoadingTaskState value)? loading,
     TResult Function(LoadedTaskState value)? loaded,
     TResult Function(FailureTaskState value)? failure,
@@ -902,7 +374,7 @@ abstract class $LoadedTaskStateCopyWith<$Res> {
   factory $LoadedTaskStateCopyWith(
           LoadedTaskState value, $Res Function(LoadedTaskState) then) =
       _$LoadedTaskStateCopyWithImpl<$Res>;
-  $Res call({List<dynamic> result});
+  $Res call({List<TaskModel> result});
 }
 
 /// @nodoc
@@ -923,7 +395,7 @@ class _$LoadedTaskStateCopyWithImpl<$Res> extends _$TaskStateCopyWithImpl<$Res>
       result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<TaskModel>,
     ));
   }
 }
@@ -934,7 +406,7 @@ class _$LoadedTaskState extends LoadedTaskState {
   const _$LoadedTaskState(this.result) : super._();
 
   @override
-  final List<dynamic> result;
+  final List<TaskModel> result;
 
   @override
   String toString() {
@@ -961,9 +433,8 @@ class _$LoadedTaskState extends LoadedTaskState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<dynamic> result) loaded,
+    required TResult Function(List<TaskModel> result) loaded,
     required TResult Function() failure,
   }) {
     return loaded(result);
@@ -972,9 +443,8 @@ class _$LoadedTaskState extends LoadedTaskState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
+    TResult Function(List<TaskModel> result)? loaded,
     TResult Function()? failure,
   }) {
     return loaded?.call(result);
@@ -983,9 +453,8 @@ class _$LoadedTaskState extends LoadedTaskState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
+    TResult Function(List<TaskModel> result)? loaded,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -998,7 +467,6 @@ class _$LoadedTaskState extends LoadedTaskState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitialTaskState value) initial,
     required TResult Function(LoadingTaskState value) loading,
     required TResult Function(LoadedTaskState value) loaded,
     required TResult Function(FailureTaskState value) failure,
@@ -1009,7 +477,6 @@ class _$LoadedTaskState extends LoadedTaskState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
     TResult Function(LoadingTaskState value)? loading,
     TResult Function(LoadedTaskState value)? loaded,
     TResult Function(FailureTaskState value)? failure,
@@ -1020,7 +487,6 @@ class _$LoadedTaskState extends LoadedTaskState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
     TResult Function(LoadingTaskState value)? loading,
     TResult Function(LoadedTaskState value)? loaded,
     TResult Function(FailureTaskState value)? failure,
@@ -1034,10 +500,10 @@ class _$LoadedTaskState extends LoadedTaskState {
 }
 
 abstract class LoadedTaskState extends TaskState {
-  const factory LoadedTaskState(List<dynamic> result) = _$LoadedTaskState;
+  const factory LoadedTaskState(List<TaskModel> result) = _$LoadedTaskState;
   const LoadedTaskState._() : super._();
 
-  List<dynamic> get result => throw _privateConstructorUsedError;
+  List<TaskModel> get result => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LoadedTaskStateCopyWith<LoadedTaskState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1082,9 +548,8 @@ class _$FailureTaskState extends FailureTaskState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<dynamic> result) loaded,
+    required TResult Function(List<TaskModel> result) loaded,
     required TResult Function() failure,
   }) {
     return failure();
@@ -1093,9 +558,8 @@ class _$FailureTaskState extends FailureTaskState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
+    TResult Function(List<TaskModel> result)? loaded,
     TResult Function()? failure,
   }) {
     return failure?.call();
@@ -1104,9 +568,8 @@ class _$FailureTaskState extends FailureTaskState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<dynamic> result)? loaded,
+    TResult Function(List<TaskModel> result)? loaded,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -1119,7 +582,6 @@ class _$FailureTaskState extends FailureTaskState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitialTaskState value) initial,
     required TResult Function(LoadingTaskState value) loading,
     required TResult Function(LoadedTaskState value) loaded,
     required TResult Function(FailureTaskState value) failure,
@@ -1130,7 +592,6 @@ class _$FailureTaskState extends FailureTaskState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
     TResult Function(LoadingTaskState value)? loading,
     TResult Function(LoadedTaskState value)? loaded,
     TResult Function(FailureTaskState value)? failure,
@@ -1141,7 +602,6 @@ class _$FailureTaskState extends FailureTaskState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialTaskState value)? initial,
     TResult Function(LoadingTaskState value)? loading,
     TResult Function(LoadedTaskState value)? loaded,
     TResult Function(FailureTaskState value)? failure,

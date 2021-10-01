@@ -71,13 +71,4 @@ class ApiService {
       body: utf8.encode(json.encode(photo.toJson())),
     );
   }
-
-  // @override
-  // Future<AccountModel> getAccountMe() async {
-  //   log('get account me');
-  //   return getEntity<AccountModel>(
-  //     'https://app.tradergram.pro/api/v1/user/me',
-  //     (data) => AccountModel.fromJson(data),
-  //   );
-  // }
 }

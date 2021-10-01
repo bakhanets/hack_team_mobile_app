@@ -17,23 +17,13 @@ class DetailProjectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     log('id->$id');
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            sl<NavigationPagesBloc>().add(ToHomeNavigationPagesEvent());
-          },
-        ),
-      ),
-      body: BlocProvider(
-        create: (context) => DetailProjectBloc(sl<RedmineRepository>()),
-        child: BlocBuilder<DetailProjectBloc, DetailProjectState>(
-          builder: (context, state) => state.when(
-            loading: () => LoadingWidget(),
-            loaded: (detail) => DetailProjectInfo(model: detail),
-            failure: () => FailureLoadedWidget(),
-          ),
+    return BlocProvider(
+      create: (context) => DetailProjectBloc(sl<RedmineRepository>()),
+      child: BlocBuilder<DetailProjectBloc, DetailProjectState>(
+        builder: (context, state) => state.when(
+          loading: () => LoadingWidget(),
+          loaded: (detail) => DetailProjectInfo(model: detail),
+          failure: () => FailureLoadedWidget(),
         ),
       ),
     );

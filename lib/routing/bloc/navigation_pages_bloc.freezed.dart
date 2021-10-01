@@ -26,6 +26,10 @@ class _$NavigationPagesEventTearOff {
       id,
     );
   }
+
+  ToTaskProjectNavigationPagesEvent toTaskProject() {
+    return const ToTaskProjectNavigationPagesEvent();
+  }
 }
 
 /// @nodoc
@@ -37,18 +41,21 @@ mixin _$NavigationPagesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() toHome,
     required TResult Function(int id) toDetailProject,
+    required TResult Function() toTaskProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? toHome,
     TResult Function(int id)? toDetailProject,
+    TResult Function()? toTaskProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toHome,
     TResult Function(int id)? toDetailProject,
+    TResult Function()? toTaskProject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +64,8 @@ mixin _$NavigationPagesEvent {
     required TResult Function(ToHomeNavigationPagesEvent value) toHome,
     required TResult Function(ToDetailProjectNavigationPagesEvent value)
         toDetailProject,
+    required TResult Function(ToTaskProjectNavigationPagesEvent value)
+        toTaskProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +73,7 @@ mixin _$NavigationPagesEvent {
     TResult Function(ToHomeNavigationPagesEvent value)? toHome,
     TResult Function(ToDetailProjectNavigationPagesEvent value)?
         toDetailProject,
+    TResult Function(ToTaskProjectNavigationPagesEvent value)? toTaskProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +81,7 @@ mixin _$NavigationPagesEvent {
     TResult Function(ToHomeNavigationPagesEvent value)? toHome,
     TResult Function(ToDetailProjectNavigationPagesEvent value)?
         toDetailProject,
+    TResult Function(ToTaskProjectNavigationPagesEvent value)? toTaskProject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,6 +147,7 @@ class _$ToHomeNavigationPagesEvent extends ToHomeNavigationPagesEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() toHome,
     required TResult Function(int id) toDetailProject,
+    required TResult Function() toTaskProject,
   }) {
     return toHome();
   }
@@ -145,6 +157,7 @@ class _$ToHomeNavigationPagesEvent extends ToHomeNavigationPagesEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? toHome,
     TResult Function(int id)? toDetailProject,
+    TResult Function()? toTaskProject,
   }) {
     return toHome?.call();
   }
@@ -154,6 +167,7 @@ class _$ToHomeNavigationPagesEvent extends ToHomeNavigationPagesEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toHome,
     TResult Function(int id)? toDetailProject,
+    TResult Function()? toTaskProject,
     required TResult orElse(),
   }) {
     if (toHome != null) {
@@ -168,6 +182,8 @@ class _$ToHomeNavigationPagesEvent extends ToHomeNavigationPagesEvent {
     required TResult Function(ToHomeNavigationPagesEvent value) toHome,
     required TResult Function(ToDetailProjectNavigationPagesEvent value)
         toDetailProject,
+    required TResult Function(ToTaskProjectNavigationPagesEvent value)
+        toTaskProject,
   }) {
     return toHome(this);
   }
@@ -178,6 +194,7 @@ class _$ToHomeNavigationPagesEvent extends ToHomeNavigationPagesEvent {
     TResult Function(ToHomeNavigationPagesEvent value)? toHome,
     TResult Function(ToDetailProjectNavigationPagesEvent value)?
         toDetailProject,
+    TResult Function(ToTaskProjectNavigationPagesEvent value)? toTaskProject,
   }) {
     return toHome?.call(this);
   }
@@ -188,6 +205,7 @@ class _$ToHomeNavigationPagesEvent extends ToHomeNavigationPagesEvent {
     TResult Function(ToHomeNavigationPagesEvent value)? toHome,
     TResult Function(ToDetailProjectNavigationPagesEvent value)?
         toDetailProject,
+    TResult Function(ToTaskProjectNavigationPagesEvent value)? toTaskProject,
     required TResult orElse(),
   }) {
     if (toHome != null) {
@@ -275,6 +293,7 @@ class _$ToDetailProjectNavigationPagesEvent
   TResult when<TResult extends Object?>({
     required TResult Function() toHome,
     required TResult Function(int id) toDetailProject,
+    required TResult Function() toTaskProject,
   }) {
     return toDetailProject(id);
   }
@@ -284,6 +303,7 @@ class _$ToDetailProjectNavigationPagesEvent
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? toHome,
     TResult Function(int id)? toDetailProject,
+    TResult Function()? toTaskProject,
   }) {
     return toDetailProject?.call(id);
   }
@@ -293,6 +313,7 @@ class _$ToDetailProjectNavigationPagesEvent
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? toHome,
     TResult Function(int id)? toDetailProject,
+    TResult Function()? toTaskProject,
     required TResult orElse(),
   }) {
     if (toDetailProject != null) {
@@ -307,6 +328,8 @@ class _$ToDetailProjectNavigationPagesEvent
     required TResult Function(ToHomeNavigationPagesEvent value) toHome,
     required TResult Function(ToDetailProjectNavigationPagesEvent value)
         toDetailProject,
+    required TResult Function(ToTaskProjectNavigationPagesEvent value)
+        toTaskProject,
   }) {
     return toDetailProject(this);
   }
@@ -317,6 +340,7 @@ class _$ToDetailProjectNavigationPagesEvent
     TResult Function(ToHomeNavigationPagesEvent value)? toHome,
     TResult Function(ToDetailProjectNavigationPagesEvent value)?
         toDetailProject,
+    TResult Function(ToTaskProjectNavigationPagesEvent value)? toTaskProject,
   }) {
     return toDetailProject?.call(this);
   }
@@ -327,6 +351,7 @@ class _$ToDetailProjectNavigationPagesEvent
     TResult Function(ToHomeNavigationPagesEvent value)? toHome,
     TResult Function(ToDetailProjectNavigationPagesEvent value)?
         toDetailProject,
+    TResult Function(ToTaskProjectNavigationPagesEvent value)? toTaskProject,
     required TResult orElse(),
   }) {
     if (toDetailProject != null) {
@@ -350,6 +375,127 @@ abstract class ToDetailProjectNavigationPagesEvent
 }
 
 /// @nodoc
+abstract class $ToTaskProjectNavigationPagesEventCopyWith<$Res> {
+  factory $ToTaskProjectNavigationPagesEventCopyWith(
+          ToTaskProjectNavigationPagesEvent value,
+          $Res Function(ToTaskProjectNavigationPagesEvent) then) =
+      _$ToTaskProjectNavigationPagesEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ToTaskProjectNavigationPagesEventCopyWithImpl<$Res>
+    extends _$NavigationPagesEventCopyWithImpl<$Res>
+    implements $ToTaskProjectNavigationPagesEventCopyWith<$Res> {
+  _$ToTaskProjectNavigationPagesEventCopyWithImpl(
+      ToTaskProjectNavigationPagesEvent _value,
+      $Res Function(ToTaskProjectNavigationPagesEvent) _then)
+      : super(_value, (v) => _then(v as ToTaskProjectNavigationPagesEvent));
+
+  @override
+  ToTaskProjectNavigationPagesEvent get _value =>
+      super._value as ToTaskProjectNavigationPagesEvent;
+}
+
+/// @nodoc
+
+class _$ToTaskProjectNavigationPagesEvent
+    extends ToTaskProjectNavigationPagesEvent {
+  const _$ToTaskProjectNavigationPagesEvent() : super._();
+
+  @override
+  String toString() {
+    return 'NavigationPagesEvent.toTaskProject()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is ToTaskProjectNavigationPagesEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toHome,
+    required TResult Function(int id) toDetailProject,
+    required TResult Function() toTaskProject,
+  }) {
+    return toTaskProject();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? toHome,
+    TResult Function(int id)? toDetailProject,
+    TResult Function()? toTaskProject,
+  }) {
+    return toTaskProject?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toHome,
+    TResult Function(int id)? toDetailProject,
+    TResult Function()? toTaskProject,
+    required TResult orElse(),
+  }) {
+    if (toTaskProject != null) {
+      return toTaskProject();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ToHomeNavigationPagesEvent value) toHome,
+    required TResult Function(ToDetailProjectNavigationPagesEvent value)
+        toDetailProject,
+    required TResult Function(ToTaskProjectNavigationPagesEvent value)
+        toTaskProject,
+  }) {
+    return toTaskProject(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ToHomeNavigationPagesEvent value)? toHome,
+    TResult Function(ToDetailProjectNavigationPagesEvent value)?
+        toDetailProject,
+    TResult Function(ToTaskProjectNavigationPagesEvent value)? toTaskProject,
+  }) {
+    return toTaskProject?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ToHomeNavigationPagesEvent value)? toHome,
+    TResult Function(ToDetailProjectNavigationPagesEvent value)?
+        toDetailProject,
+    TResult Function(ToTaskProjectNavigationPagesEvent value)? toTaskProject,
+    required TResult orElse(),
+  }) {
+    if (toTaskProject != null) {
+      return toTaskProject(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ToTaskProjectNavigationPagesEvent extends NavigationPagesEvent {
+  const factory ToTaskProjectNavigationPagesEvent() =
+      _$ToTaskProjectNavigationPagesEvent;
+  const ToTaskProjectNavigationPagesEvent._() : super._();
+}
+
+/// @nodoc
 class _$NavigationPagesStateTearOff {
   const _$NavigationPagesStateTearOff();
 
@@ -362,6 +508,10 @@ class _$NavigationPagesStateTearOff {
       id,
     );
   }
+
+  TaskProjectNavigationPagesState taskProject() {
+    return const TaskProjectNavigationPagesState();
+  }
 }
 
 /// @nodoc
@@ -373,18 +523,21 @@ mixin _$NavigationPagesState {
   TResult when<TResult extends Object?>({
     required TResult Function() home,
     required TResult Function(int id) detailProject,
+    required TResult Function() taskProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(int id)? detailProject,
+    TResult Function()? taskProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(int id)? detailProject,
+    TResult Function()? taskProject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -393,18 +546,22 @@ mixin _$NavigationPagesState {
     required TResult Function(HomeNavigationPagesState value) home,
     required TResult Function(DetailProjectNavigationPagesState value)
         detailProject,
+    required TResult Function(TaskProjectNavigationPagesState value)
+        taskProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(HomeNavigationPagesState value)? home,
     TResult Function(DetailProjectNavigationPagesState value)? detailProject,
+    TResult Function(TaskProjectNavigationPagesState value)? taskProject,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeNavigationPagesState value)? home,
     TResult Function(DetailProjectNavigationPagesState value)? detailProject,
+    TResult Function(TaskProjectNavigationPagesState value)? taskProject,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -470,6 +627,7 @@ class _$HomeNavigationPagesState extends HomeNavigationPagesState {
   TResult when<TResult extends Object?>({
     required TResult Function() home,
     required TResult Function(int id) detailProject,
+    required TResult Function() taskProject,
   }) {
     return home();
   }
@@ -479,6 +637,7 @@ class _$HomeNavigationPagesState extends HomeNavigationPagesState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(int id)? detailProject,
+    TResult Function()? taskProject,
   }) {
     return home?.call();
   }
@@ -488,6 +647,7 @@ class _$HomeNavigationPagesState extends HomeNavigationPagesState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(int id)? detailProject,
+    TResult Function()? taskProject,
     required TResult orElse(),
   }) {
     if (home != null) {
@@ -502,6 +662,8 @@ class _$HomeNavigationPagesState extends HomeNavigationPagesState {
     required TResult Function(HomeNavigationPagesState value) home,
     required TResult Function(DetailProjectNavigationPagesState value)
         detailProject,
+    required TResult Function(TaskProjectNavigationPagesState value)
+        taskProject,
   }) {
     return home(this);
   }
@@ -511,6 +673,7 @@ class _$HomeNavigationPagesState extends HomeNavigationPagesState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(HomeNavigationPagesState value)? home,
     TResult Function(DetailProjectNavigationPagesState value)? detailProject,
+    TResult Function(TaskProjectNavigationPagesState value)? taskProject,
   }) {
     return home?.call(this);
   }
@@ -520,6 +683,7 @@ class _$HomeNavigationPagesState extends HomeNavigationPagesState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeNavigationPagesState value)? home,
     TResult Function(DetailProjectNavigationPagesState value)? detailProject,
+    TResult Function(TaskProjectNavigationPagesState value)? taskProject,
     required TResult orElse(),
   }) {
     if (home != null) {
@@ -606,6 +770,7 @@ class _$DetailProjectNavigationPagesState
   TResult when<TResult extends Object?>({
     required TResult Function() home,
     required TResult Function(int id) detailProject,
+    required TResult Function() taskProject,
   }) {
     return detailProject(id);
   }
@@ -615,6 +780,7 @@ class _$DetailProjectNavigationPagesState
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(int id)? detailProject,
+    TResult Function()? taskProject,
   }) {
     return detailProject?.call(id);
   }
@@ -624,6 +790,7 @@ class _$DetailProjectNavigationPagesState
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? home,
     TResult Function(int id)? detailProject,
+    TResult Function()? taskProject,
     required TResult orElse(),
   }) {
     if (detailProject != null) {
@@ -638,6 +805,8 @@ class _$DetailProjectNavigationPagesState
     required TResult Function(HomeNavigationPagesState value) home,
     required TResult Function(DetailProjectNavigationPagesState value)
         detailProject,
+    required TResult Function(TaskProjectNavigationPagesState value)
+        taskProject,
   }) {
     return detailProject(this);
   }
@@ -647,6 +816,7 @@ class _$DetailProjectNavigationPagesState
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(HomeNavigationPagesState value)? home,
     TResult Function(DetailProjectNavigationPagesState value)? detailProject,
+    TResult Function(TaskProjectNavigationPagesState value)? taskProject,
   }) {
     return detailProject?.call(this);
   }
@@ -656,6 +826,7 @@ class _$DetailProjectNavigationPagesState
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HomeNavigationPagesState value)? home,
     TResult Function(DetailProjectNavigationPagesState value)? detailProject,
+    TResult Function(TaskProjectNavigationPagesState value)? taskProject,
     required TResult orElse(),
   }) {
     if (detailProject != null) {
@@ -674,4 +845,122 @@ abstract class DetailProjectNavigationPagesState extends NavigationPagesState {
   @JsonKey(ignore: true)
   $DetailProjectNavigationPagesStateCopyWith<DetailProjectNavigationPagesState>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $TaskProjectNavigationPagesStateCopyWith<$Res> {
+  factory $TaskProjectNavigationPagesStateCopyWith(
+          TaskProjectNavigationPagesState value,
+          $Res Function(TaskProjectNavigationPagesState) then) =
+      _$TaskProjectNavigationPagesStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$TaskProjectNavigationPagesStateCopyWithImpl<$Res>
+    extends _$NavigationPagesStateCopyWithImpl<$Res>
+    implements $TaskProjectNavigationPagesStateCopyWith<$Res> {
+  _$TaskProjectNavigationPagesStateCopyWithImpl(
+      TaskProjectNavigationPagesState _value,
+      $Res Function(TaskProjectNavigationPagesState) _then)
+      : super(_value, (v) => _then(v as TaskProjectNavigationPagesState));
+
+  @override
+  TaskProjectNavigationPagesState get _value =>
+      super._value as TaskProjectNavigationPagesState;
+}
+
+/// @nodoc
+
+class _$TaskProjectNavigationPagesState
+    extends TaskProjectNavigationPagesState {
+  const _$TaskProjectNavigationPagesState() : super._();
+
+  @override
+  String toString() {
+    return 'NavigationPagesState.taskProject()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is TaskProjectNavigationPagesState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() home,
+    required TResult Function(int id) detailProject,
+    required TResult Function() taskProject,
+  }) {
+    return taskProject();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function(int id)? detailProject,
+    TResult Function()? taskProject,
+  }) {
+    return taskProject?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? home,
+    TResult Function(int id)? detailProject,
+    TResult Function()? taskProject,
+    required TResult orElse(),
+  }) {
+    if (taskProject != null) {
+      return taskProject();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(HomeNavigationPagesState value) home,
+    required TResult Function(DetailProjectNavigationPagesState value)
+        detailProject,
+    required TResult Function(TaskProjectNavigationPagesState value)
+        taskProject,
+  }) {
+    return taskProject(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(HomeNavigationPagesState value)? home,
+    TResult Function(DetailProjectNavigationPagesState value)? detailProject,
+    TResult Function(TaskProjectNavigationPagesState value)? taskProject,
+  }) {
+    return taskProject?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(HomeNavigationPagesState value)? home,
+    TResult Function(DetailProjectNavigationPagesState value)? detailProject,
+    TResult Function(TaskProjectNavigationPagesState value)? taskProject,
+    required TResult orElse(),
+  }) {
+    if (taskProject != null) {
+      return taskProject(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TaskProjectNavigationPagesState extends NavigationPagesState {
+  const factory TaskProjectNavigationPagesState() =
+      _$TaskProjectNavigationPagesState;
+  const TaskProjectNavigationPagesState._() : super._();
 }
