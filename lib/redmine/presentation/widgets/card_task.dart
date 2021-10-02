@@ -94,6 +94,7 @@ class StatusColor {
   static const solved = Color(0xffFFE082);
   static const closed = Color(0xffE6EE9C);
   static const feedback = Color(0xffD7CCC8);
+  static const newe = Color(0xffB479FF);
 }
 
 class PriorityCard extends StatelessWidget {
@@ -102,32 +103,34 @@ class PriorityCard extends StatelessWidget {
   final dynamic object;
   final bool isPriority;
 
-  Color nameToColorStatus(String value) {
+  Color nameToColorStatus(int value) {
     switch (value) {
-      case 'Решена':
+      case 1:
+        return StatusColor.newe;
+      case 3:
         return StatusColor.solved;
-      case 'В работе':
+      case 2:
         return StatusColor.work;
-      case 'Закрыта':
+      case 5:
         return StatusColor.closed;
-      case 'Обратная связь':
+      case 4:
         return StatusColor.feedback;
       default:
         return Colors.purple;
     }
   }
 
-  Color nameToColorPriority(String value) {
+  Color nameToColorPriority(int value) {
     switch (value) {
-      case 'Низкий':
+      case 1:
         return PropertiColors.low;
-      case 'Нормальный':
+      case 2:
         return PropertiColors.normal;
-      case 'Высокий':
+      case 3:
         return PropertiColors.height;
-      case 'Срочный':
+      case 4:
         return PropertiColors.urgently;
-      case 'Немедленный':
+      case 5:
         return PropertiColors.instant;
       default:
         return Colors.orange;
@@ -139,10 +142,10 @@ class PriorityCard extends StatelessWidget {
     var color = Colors.white;
     var text = '';
     if (!isPriority) {
-      color = nameToColorStatus((object as TStatus).name);
+      color = nameToColorStatus((object as TStatus).id);
       text = (object as TStatus).name;
     } else {
-      color = nameToColorPriority((object as TPriority).name);
+      color = nameToColorPriority((object as TPriority).id);
       text = (object as TPriority).name;
     }
     return Padding(
