@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hack_team_flutter_app/constatns.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/event_card.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/notification_header_widget.dart';
 import 'package:hack_team_flutter_app/service/api.dart';
@@ -32,7 +33,25 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: NotificationHeaderWidget(),
+        title: GestureDetector(
+            onTap: () {
+              showModalBottomSheet<void>(
+                context: context,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10),
+                  ),
+                ),
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.8,
+                ),
+                builder: (context) {
+                  return BottomSheetDialog();
+                },
+              );
+            },
+            child: NotificationHeaderWidget()),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
