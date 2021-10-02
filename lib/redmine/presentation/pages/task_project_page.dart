@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
 import 'package:hack_team_flutter_app/redmine/domain/bloc/task_bloc.dart';
 import 'package:hack_team_flutter_app/redmine/domain/repository/redmine_repository.dart';
 import 'package:hack_team_flutter_app/redmine/presentation/widgets/task_list_widget.dart';
+import 'package:hack_team_flutter_app/routing/bloc/navigation_pages_bloc.dart';
 import 'package:hack_team_flutter_app/widgets/failure_loaded_widget.dart';
 import 'package:hack_team_flutter_app/widgets/loading_widget.dart';
 
@@ -17,16 +19,46 @@ class TaskProjectPage extends StatelessWidget {
       create: (context) =>
           TaskBloc(sl<RedmineRepository>())..add(ReadTaskEvent(id)),
       child: Scaffold(
+        backgroundColor: Color(0xffE5E5E5),
         appBar: AppBar(
+          title: Text(
+            'Обзор проекта',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18.0,
+            ),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {},
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+              size: 15.0,
+            ),
+            onPressed: () {
+              sl<NavigationPagesBloc>()
+                  .add(ToDetailProjectNavigationPagesEvent(id));
+            },
           ),
         ),
         body: Container(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Задачи'),
+              Padding(
+                padding:
+                    const EdgeInsets.only(left: 15.0, top: 10.0, bottom: 10.0),
+                child: Text(
+                  'Задачи',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+              ),
               BlocBuilder<TaskBloc, TaskState>(
                 builder: (context, state) {
                   return state.when(

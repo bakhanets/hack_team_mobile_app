@@ -1,37 +1,81 @@
 import 'package:flutter/material.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/task/t_assigned_to.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/task/t_priority.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/task/t_status.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/task/task_model.dart';
 
 class TaskCard extends StatelessWidget {
-  const TaskCard({Key? key, required this.title, required this.userName})
-      : super(key: key);
-  final String title;
-  final String userName;
+  const TaskCard({
+    Key? key,
+    required this.task,
+  }) : super(key: key);
+  final TaskModel task;
+  // final String title;
+  // final TAssignedTo? userName;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.red,
-        borderRadius: BorderRadius.circular(5.0),
-      ),
-      child: Column(
-        children: [
-          Row(
+    return Padding(
+      padding:
+          const EdgeInsets.only(top: 4.0, bottom: 4.0, left: 15.0, right: 15.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PriorityCard(color: Colors.red, text: 'Низк.'),
-              PriorityCard(
-                color: Colors.blue,
-                text: 'Закрыта',
+              Row(
+                children: [
+                  PriorityCard(
+                    isPriority: true,
+                    object: task.priority,
+                  ),
+                  PriorityCard(
+                    isPriority: false,
+                    object: task.status,
+                  ),
+                ],
               ),
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  task.subject,
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              if (task.assigned_to != null)
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Wrap(
+                    children: [
+                      Text(
+                        'Назначено на: ',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      Text(
+                        task.assigned_to!.name,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
             ],
           ),
-          Text(title),
-          Wrap(
-            children: [
-              Text('Назначено на: '),
-              Text(userName),
-            ],
-          )
-        ],
+        ),
       ),
     );
   }
@@ -53,19 +97,66 @@ class StatusColor {
 }
 
 class PriorityCard extends StatelessWidget {
-  const PriorityCard({Key? key, required this.color, required this.text})
+  const PriorityCard({Key? key, required this.object, required this.isPriority})
       : super(key: key);
-  final Color color;
-  final String text;
+  final dynamic object;
+  final bool isPriority;
+
+  Color nameToColorStatus(String value) {
+    switch (value) {
+      case 'Решена':
+        return StatusColor.solved;
+      case 'В работе':
+        return StatusColor.work;
+      case 'Закрыта':
+        return StatusColor.closed;
+      case 'Обратная связь':
+        return StatusColor.feedback;
+      default:
+        return Colors.purple;
+    }
+  }
+
+  Color nameToColorPriority(String value) {
+    switch (value) {
+      case 'Низкий':
+        return PropertiColors.low;
+      case 'Нормальный':
+        return PropertiColors.normal;
+      case 'Высокий':
+        return PropertiColors.height;
+      case 'Срочный':
+        return PropertiColors.urgently;
+      case 'Немедленный':
+        return PropertiColors.instant;
+      default:
+        return Colors.orange;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(8.0),
+    var color = Colors.white;
+    var text = '';
+    if (!isPriority) {
+      color = nameToColorStatus((object as TStatus).name);
+      text = (object as TStatus).name;
+    } else {
+      color = nameToColorPriority((object as TPriority).name);
+      text = (object as TPriority).name;
+    }
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(3.0),
+          child: Text(text),
+        ),
       ),
-      child: Text(text),
     );
   }
 }

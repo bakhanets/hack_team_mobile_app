@@ -12,8 +12,7 @@ class TaskListWidget extends StatelessWidget {
       child: ListView.builder(
         itemCount: tasks.length,
         itemBuilder: (context, i) => TaskCard(
-          title: '',
-          userName: '',
+          task: tasks[i],
         ),
       ),
     );
