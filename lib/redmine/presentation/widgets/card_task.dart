@@ -1,8 +1,10 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/task/t_assigned_to.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/task/t_priority.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/task/t_status.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/task/task_model.dart';
+import 'package:hack_team_flutter_app/redmine/presentation/pages/detail_task_page.dart';
 
 class TaskCard extends StatelessWidget {
   const TaskCard({
@@ -16,68 +18,153 @@ class TaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          const EdgeInsets.only(top: 4.0, bottom: 4.0, left: 15.0, right: 15.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(5.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  PriorityCard(
-                    isPriority: true,
-                    object: task.priority,
-                  ),
-                  PriorityCard(
-                    isPriority: false,
-                    object: task.status,
-                  ),
-                ],
+      padding: const EdgeInsets.all(8.0),
+      child: OpenContainer(
+        closedBuilder: (BuildContext context, void Function() action) {
+          return Padding(
+            padding: const EdgeInsets.only(
+                top: 4.0, bottom: 4.0, left: 15.0, right: 15.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5.0),
               ),
-              Padding(
+              child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  task.subject,
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        PriorityCard(
+                          isPriority: true,
+                          object: task.priority,
+                        ),
+                        PriorityCard(
+                          isPriority: false,
+                          object: task.status,
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Text(
+                        task.subject,
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    if (task.assigned_to != null)
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Wrap(
+                          children: [
+                            Text(
+                              'Назначено на: ',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 16.0,
+                              ),
+                            ),
+                            Text(
+                              task.assigned_to!.name,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                  ],
                 ),
               ),
-              if (task.assigned_to != null)
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Wrap(
-                    children: [
-                      Text(
-                        'Назначено на: ',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                      Text(
-                        task.assigned_to!.name,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-            ],
-          ),
-        ),
+            ),
+          );
+        },
+        openBuilder: (BuildContext context,
+            void Function({Object? returnValue}) action) {
+          return DetailTaskPage();
+        },
       ),
     );
+
+    // GestureDetector(
+    //   onTap: () {
+    //     Navigator.push(
+    //       context,
+    //       MaterialPageRoute(
+    //         builder: (context) => DetailTaskPage(),
+    //       ),
+    //     );
+    //   },
+    //   child: Padding(
+    //     padding: const EdgeInsets.only(
+    //         top: 4.0, bottom: 4.0, left: 15.0, right: 15.0),
+    //     child: Container(
+    //       decoration: BoxDecoration(
+    //         color: Colors.white,
+    //         borderRadius: BorderRadius.circular(5.0),
+    //       ),
+    //       child: Padding(
+    //         padding: const EdgeInsets.all(5.0),
+    //         child: Column(
+    //           crossAxisAlignment: CrossAxisAlignment.start,
+    //           children: [
+    //             Row(
+    //               children: [
+    //                 PriorityCard(
+    //                   isPriority: true,
+    //                   object: task.priority,
+    //                 ),
+    //                 PriorityCard(
+    //                   isPriority: false,
+    //                   object: task.status,
+    //                 ),
+    //               ],
+    //             ),
+    //             Padding(
+    //               padding: const EdgeInsets.all(5.0),
+    //               child: Text(
+    //                 task.subject,
+    //                 style: TextStyle(
+    //                   fontSize: 18.0,
+    //                   color: Colors.black,
+    //                   fontWeight: FontWeight.bold,
+    //                 ),
+    //               ),
+    //             ),
+    //             if (task.assigned_to != null)
+    //               Padding(
+    //                 padding: const EdgeInsets.all(5.0),
+    //                 child: Wrap(
+    //                   children: [
+    //                     Text(
+    //                       'Назначено на: ',
+    //                       style: TextStyle(
+    //                         color: Colors.grey,
+    //                         fontSize: 16.0,
+    //                       ),
+    //                     ),
+    //                     Text(
+    //                       task.assigned_to!.name,
+    //                       style: TextStyle(
+    //                         color: Colors.black,
+    //                         fontSize: 16.0,
+    //                       ),
+    //                     ),
+    //                   ],
+    //                 ),
+    //               )
+    //           ],
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 }
 

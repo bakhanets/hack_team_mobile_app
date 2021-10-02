@@ -1,5 +1,7 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
 import 'package:hack_team_flutter_app/profile/data/profile_bloc.dart';
 import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
@@ -62,16 +64,38 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedItem,
-        onTap: onTapNavBar,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.document_scanner), label: 'Redmine'),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Профиль'),
+      bottomNavigationBar: CurvedNavigationBar(
+        color: Colors.blue,
+        backgroundColor: Colors.transparent,
+        items: <Widget>[
+          Icon(
+            FeatherIcons.home,
+            size: 30,
+            color: Colors.white,
+          ),
+          Icon(
+            FeatherIcons.copy,
+            size: 30,
+            color: Colors.white,
+          ),
+          Icon(
+            FeatherIcons.user,
+            size: 30,
+            color: Colors.white,
+          ),
         ],
+        onTap: onTapNavBar,
       ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   currentIndex: selectedItem,
+      //   onTap: onTapNavBar,
+      //   items: [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.document_scanner), label: 'Redmine'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Профиль'),
+      //   ],
+      // ),
     );
   }
 }
