@@ -10,12 +10,6 @@ class RedmineScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ProjectBloc(
-        redmineRepository: sl<RedmineRepository>(),
-      )..add(CheckAutorizationProjectEvent()),
-      //,
-      child: ProjectBase(),
-    );
+    return ProjectBase();
   }
 }

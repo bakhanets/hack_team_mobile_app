@@ -73,12 +73,25 @@ class ApiRedmine {
   }
 
   Future<bool> login(String token) async {
-    var result =
-        await fetchBool(urlPath: hostUrl + 'api/redmine/authorization');
-    if (result) {
+    var url = Uri.parse(hostUrl + 'api/redmine/authorization');
+    var response = await _client.get(
+      url,
+      headers: <String, String>{
+        'authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      },
+    );
+
+    if (response.statusCode == 200) {
       await sharedPreferences.setString('token', token);
+      return true;
+    } else {
+      return false;
     }
-    return result;
+  }
+
+  void logout() {
+    sharedPreferences.remove('token');
   }
 
   String getToken() => sharedPreferences.getString('token') ?? 'token';

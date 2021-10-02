@@ -15,6 +15,8 @@ class ProjectEvent with _$ProjectEvent {
 
   const factory ProjectEvent.read() = ReadProjectEvent;
 
+  const factory ProjectEvent.logout() = LogoutProjectEvent;
+
   const factory ProjectEvent.checkAutorization() =
       CheckAutorizationProjectEvent;
 
@@ -52,7 +54,13 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
         read: _read,
         checkAutorization: _checkAutorization,
         login: _login,
+        logout: _logout,
       );
+
+  Stream<ProjectState> _logout() async* {
+    redmineRepository.logout();
+    yield NoLoggedProjectState();
+  }
 
   Stream<ProjectState> _checkAutorization() async* {
     String token = redmineRepository.token;

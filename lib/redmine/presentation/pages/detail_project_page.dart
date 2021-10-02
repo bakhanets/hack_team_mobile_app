@@ -18,11 +18,26 @@ class DetailProjectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     log('id->$id');
     return Scaffold(
+      backgroundColor: Color(0xffE5E5E5),
       appBar: AppBar(
+        title: Text(
+          'Проекты',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18.0,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+            size: 15.0,
+          ),
           onPressed: () {
-            sl<NavigationPagesBloc>().add(ToHomeNavigationPagesEvent());
+            Navigator.pop(context);
+            //sl<NavigationPagesBloc>().add(ToHomeNavigationPagesEvent());
           },
         ),
       ),

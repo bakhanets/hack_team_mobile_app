@@ -21,6 +21,8 @@ class RedmineRepository {
     }
   }
 
+  void logout() => apiRedmine.logout();
+
   String get token => apiRedmine.getToken();
 
   Future<Either<Exception, List<ProjectModel>>> getAllProjects() async {

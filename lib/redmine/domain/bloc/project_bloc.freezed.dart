@@ -21,6 +21,10 @@ class _$ProjectEventTearOff {
     return const ReadProjectEvent();
   }
 
+  LogoutProjectEvent logout() {
+    return const LogoutProjectEvent();
+  }
+
   CheckAutorizationProjectEvent checkAutorization() {
     return const CheckAutorizationProjectEvent();
   }
@@ -43,6 +47,7 @@ mixin _$ProjectEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() read,
+    required TResult Function() logout,
     required TResult Function() checkAutorization,
     required TResult Function(String name, String password, String team) login,
   }) =>
@@ -50,6 +55,7 @@ mixin _$ProjectEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? read,
+    TResult Function()? logout,
     TResult Function()? checkAutorization,
     TResult Function(String name, String password, String team)? login,
   }) =>
@@ -57,6 +63,7 @@ mixin _$ProjectEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? read,
+    TResult Function()? logout,
     TResult Function()? checkAutorization,
     TResult Function(String name, String password, String team)? login,
     required TResult orElse(),
@@ -65,6 +72,7 @@ mixin _$ProjectEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ReadProjectEvent value) read,
+    required TResult Function(LogoutProjectEvent value) logout,
     required TResult Function(CheckAutorizationProjectEvent value)
         checkAutorization,
     required TResult Function(LoginProjectEvent value) login,
@@ -73,6 +81,7 @@ mixin _$ProjectEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
     TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
     TResult Function(LoginProjectEvent value)? login,
   }) =>
@@ -80,6 +89,7 @@ mixin _$ProjectEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
     TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
     TResult Function(LoginProjectEvent value)? login,
     required TResult orElse(),
@@ -144,6 +154,7 @@ class _$ReadProjectEvent extends ReadProjectEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() read,
+    required TResult Function() logout,
     required TResult Function() checkAutorization,
     required TResult Function(String name, String password, String team) login,
   }) {
@@ -154,6 +165,7 @@ class _$ReadProjectEvent extends ReadProjectEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? read,
+    TResult Function()? logout,
     TResult Function()? checkAutorization,
     TResult Function(String name, String password, String team)? login,
   }) {
@@ -164,6 +176,7 @@ class _$ReadProjectEvent extends ReadProjectEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? read,
+    TResult Function()? logout,
     TResult Function()? checkAutorization,
     TResult Function(String name, String password, String team)? login,
     required TResult orElse(),
@@ -178,6 +191,7 @@ class _$ReadProjectEvent extends ReadProjectEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ReadProjectEvent value) read,
+    required TResult Function(LogoutProjectEvent value) logout,
     required TResult Function(CheckAutorizationProjectEvent value)
         checkAutorization,
     required TResult Function(LoginProjectEvent value) login,
@@ -189,6 +203,7 @@ class _$ReadProjectEvent extends ReadProjectEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
     TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
     TResult Function(LoginProjectEvent value)? login,
   }) {
@@ -199,6 +214,7 @@ class _$ReadProjectEvent extends ReadProjectEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
     TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
     TResult Function(LoginProjectEvent value)? login,
     required TResult orElse(),
@@ -213,6 +229,124 @@ class _$ReadProjectEvent extends ReadProjectEvent {
 abstract class ReadProjectEvent extends ProjectEvent {
   const factory ReadProjectEvent() = _$ReadProjectEvent;
   const ReadProjectEvent._() : super._();
+}
+
+/// @nodoc
+abstract class $LogoutProjectEventCopyWith<$Res> {
+  factory $LogoutProjectEventCopyWith(
+          LogoutProjectEvent value, $Res Function(LogoutProjectEvent) then) =
+      _$LogoutProjectEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LogoutProjectEventCopyWithImpl<$Res>
+    extends _$ProjectEventCopyWithImpl<$Res>
+    implements $LogoutProjectEventCopyWith<$Res> {
+  _$LogoutProjectEventCopyWithImpl(
+      LogoutProjectEvent _value, $Res Function(LogoutProjectEvent) _then)
+      : super(_value, (v) => _then(v as LogoutProjectEvent));
+
+  @override
+  LogoutProjectEvent get _value => super._value as LogoutProjectEvent;
+}
+
+/// @nodoc
+
+class _$LogoutProjectEvent extends LogoutProjectEvent {
+  const _$LogoutProjectEvent() : super._();
+
+  @override
+  String toString() {
+    return 'ProjectEvent.logout()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is LogoutProjectEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() read,
+    required TResult Function() logout,
+    required TResult Function() checkAutorization,
+    required TResult Function(String name, String password, String team) login,
+  }) {
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? read,
+    TResult Function()? logout,
+    TResult Function()? checkAutorization,
+    TResult Function(String name, String password, String team)? login,
+  }) {
+    return logout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? read,
+    TResult Function()? logout,
+    TResult Function()? checkAutorization,
+    TResult Function(String name, String password, String team)? login,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ReadProjectEvent value) read,
+    required TResult Function(LogoutProjectEvent value) logout,
+    required TResult Function(CheckAutorizationProjectEvent value)
+        checkAutorization,
+    required TResult Function(LoginProjectEvent value) login,
+  }) {
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
+    TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
+    TResult Function(LoginProjectEvent value)? login,
+  }) {
+    return logout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
+    TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
+    TResult Function(LoginProjectEvent value)? login,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LogoutProjectEvent extends ProjectEvent {
+  const factory LogoutProjectEvent() = _$LogoutProjectEvent;
+  const LogoutProjectEvent._() : super._();
 }
 
 /// @nodoc
@@ -259,6 +393,7 @@ class _$CheckAutorizationProjectEvent extends CheckAutorizationProjectEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() read,
+    required TResult Function() logout,
     required TResult Function() checkAutorization,
     required TResult Function(String name, String password, String team) login,
   }) {
@@ -269,6 +404,7 @@ class _$CheckAutorizationProjectEvent extends CheckAutorizationProjectEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? read,
+    TResult Function()? logout,
     TResult Function()? checkAutorization,
     TResult Function(String name, String password, String team)? login,
   }) {
@@ -279,6 +415,7 @@ class _$CheckAutorizationProjectEvent extends CheckAutorizationProjectEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? read,
+    TResult Function()? logout,
     TResult Function()? checkAutorization,
     TResult Function(String name, String password, String team)? login,
     required TResult orElse(),
@@ -293,6 +430,7 @@ class _$CheckAutorizationProjectEvent extends CheckAutorizationProjectEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ReadProjectEvent value) read,
+    required TResult Function(LogoutProjectEvent value) logout,
     required TResult Function(CheckAutorizationProjectEvent value)
         checkAutorization,
     required TResult Function(LoginProjectEvent value) login,
@@ -304,6 +442,7 @@ class _$CheckAutorizationProjectEvent extends CheckAutorizationProjectEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
     TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
     TResult Function(LoginProjectEvent value)? login,
   }) {
@@ -314,6 +453,7 @@ class _$CheckAutorizationProjectEvent extends CheckAutorizationProjectEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
     TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
     TResult Function(LoginProjectEvent value)? login,
     required TResult orElse(),
@@ -421,6 +561,7 @@ class _$LoginProjectEvent extends LoginProjectEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() read,
+    required TResult Function() logout,
     required TResult Function() checkAutorization,
     required TResult Function(String name, String password, String team) login,
   }) {
@@ -431,6 +572,7 @@ class _$LoginProjectEvent extends LoginProjectEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? read,
+    TResult Function()? logout,
     TResult Function()? checkAutorization,
     TResult Function(String name, String password, String team)? login,
   }) {
@@ -441,6 +583,7 @@ class _$LoginProjectEvent extends LoginProjectEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? read,
+    TResult Function()? logout,
     TResult Function()? checkAutorization,
     TResult Function(String name, String password, String team)? login,
     required TResult orElse(),
@@ -455,6 +598,7 @@ class _$LoginProjectEvent extends LoginProjectEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ReadProjectEvent value) read,
+    required TResult Function(LogoutProjectEvent value) logout,
     required TResult Function(CheckAutorizationProjectEvent value)
         checkAutorization,
     required TResult Function(LoginProjectEvent value) login,
@@ -466,6 +610,7 @@ class _$LoginProjectEvent extends LoginProjectEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
     TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
     TResult Function(LoginProjectEvent value)? login,
   }) {
@@ -476,6 +621,7 @@ class _$LoginProjectEvent extends LoginProjectEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ReadProjectEvent value)? read,
+    TResult Function(LogoutProjectEvent value)? logout,
     TResult Function(CheckAutorizationProjectEvent value)? checkAutorization,
     TResult Function(LoginProjectEvent value)? login,
     required TResult orElse(),

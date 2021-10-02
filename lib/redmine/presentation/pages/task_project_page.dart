@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hack_team_flutter_app/constatns.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
 import 'package:hack_team_flutter_app/redmine/domain/bloc/task_bloc.dart';
 import 'package:hack_team_flutter_app/redmine/domain/repository/redmine_repository.dart';
@@ -37,8 +38,9 @@ class TaskProjectPage extends StatelessWidget {
               size: 15.0,
             ),
             onPressed: () {
-              sl<NavigationPagesBloc>()
-                  .add(ToDetailProjectNavigationPagesEvent(id));
+              Navigator.pop(context);
+              // sl<NavigationPagesBloc>()
+              //     .add(ToDetailProjectNavigationPagesEvent(id));
             },
           ),
         ),
@@ -51,11 +53,7 @@ class TaskProjectPage extends StatelessWidget {
                     const EdgeInsets.only(left: 15.0, top: 10.0, bottom: 10.0),
                 child: Text(
                   'Задачи',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppUiStyles.title,
                   textAlign: TextAlign.start,
                 ),
               ),

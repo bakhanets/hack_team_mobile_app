@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
+import 'package:hack_team_flutter_app/redmine/domain/bloc/project_bloc.dart';
+import 'package:hack_team_flutter_app/redmine/domain/repository/redmine_repository.dart';
 import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
 import 'package:hack_team_flutter_app/routing/bloc/navigation_pages_bloc.dart';
 import 'package:hack_team_flutter_app/routing/main_router_info_parser.dart';
@@ -12,6 +14,11 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => ProjectBloc(
+            redmineRepository: sl<RedmineRepository>(),
+          )..add(CheckAutorizationProjectEvent()),
+        ),
         BlocProvider(create: (context) => sl<BottomNavBarBloc>()),
         BlocProvider(create: (context) => sl<NavigationPagesBloc>()),
       ],
