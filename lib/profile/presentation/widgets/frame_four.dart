@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/button_app.dart';
 
-class FrameOneView extends StatefulWidget {
-  const FrameOneView({Key? key}) : super(key: key);
+class FrameFour extends StatefulWidget {
+  FrameFour({Key? key}) : super(key: key);
 
   @override
-  State<FrameOneView> createState() => _FrameOneViewState();
+  _FrameFourState createState() => _FrameFourState();
 }
 
-class _FrameOneViewState extends State<FrameOneView> {
-  String title = 'Запросить чек-лист?';
+class _FrameFourState extends State<FrameFour> {
+  String title = 'Запросить дату встречи с HR?';
   bool isSend = false;
 
   @override
@@ -31,7 +31,7 @@ class _FrameOneViewState extends State<FrameOneView> {
         ),
         if (!isSend)
           Text(
-            'Мы отправим его на почту',
+            'Мы отправим информацию на почту',
             style: TextStyle(
               color: Colors.black,
               fontSize: 14.0,

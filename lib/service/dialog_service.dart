@@ -4,7 +4,6 @@ class DialogService with ChangeNotifier {
   static void showAlertDialog({
     required BuildContext context,
     required Widget child,
-    required String title,
     required String barrierLabel,
 
     // required Function() onDialog,

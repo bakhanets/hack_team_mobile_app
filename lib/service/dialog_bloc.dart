@@ -4,11 +4,20 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dialog_bloc.freezed.dart';
 
+enum DialogFrame {
+  one,
+  two,
+  three,
+  five,
+  four,
+}
+
 @freezed
 class DialogBlocEvent with _$DialogBlocEvent {
   const DialogBlocEvent._();
 
-  const factory DialogBlocEvent.showDialog(Widget child) = ShowDialogBlocEvent;
+  const factory DialogBlocEvent.showDialog(DialogFrame frame) =
+      ShowDialogBlocEvent;
 
   const factory DialogBlocEvent.closeDialog() = CloseDialogBlocEvent;
 }
@@ -17,7 +26,7 @@ class DialogBlocEvent with _$DialogBlocEvent {
 class DialogBlocState with _$DialogBlocState {
   const DialogBlocState._();
 
-  const factory DialogBlocState.show(Widget child) = ShowDialogBlocState;
+  const factory DialogBlocState.show(DialogFrame frame) = ShowDialogBlocState;
 
   const factory DialogBlocState.hide() = HideDialogBlocState;
 }
@@ -32,8 +41,9 @@ class DialogBlocBloc extends Bloc<DialogBlocEvent, DialogBlocState> {
         closeDialog: _closeDialog,
       );
 
-  Stream<DialogBlocState> _showDialog(Widget child) async* {
-    yield ShowDialogBlocState(child);
+  Stream<DialogBlocState> _showDialog(DialogFrame frame) async* {
+    yield HideDialogBlocState();
+    yield ShowDialogBlocState(frame);
   }
 
   Stream<DialogBlocState> _closeDialog() async* {

@@ -17,9 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$DialogBlocEventTearOff {
   const _$DialogBlocEventTearOff();
 
-  ShowDialogBlocEvent showDialog(Widget child) {
+  ShowDialogBlocEvent showDialog(DialogFrame frame) {
     return ShowDialogBlocEvent(
-      child,
+      frame,
     );
   }
 
@@ -35,19 +35,19 @@ const $DialogBlocEvent = _$DialogBlocEventTearOff();
 mixin _$DialogBlocEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Widget child) showDialog,
+    required TResult Function(DialogFrame frame) showDialog,
     required TResult Function() closeDialog,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Widget child)? showDialog,
+    TResult Function(DialogFrame frame)? showDialog,
     TResult Function()? closeDialog,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Widget child)? showDialog,
+    TResult Function(DialogFrame frame)? showDialog,
     TResult Function()? closeDialog,
     required TResult orElse(),
   }) =>
@@ -95,7 +95,7 @@ abstract class $ShowDialogBlocEventCopyWith<$Res> {
   factory $ShowDialogBlocEventCopyWith(
           ShowDialogBlocEvent value, $Res Function(ShowDialogBlocEvent) then) =
       _$ShowDialogBlocEventCopyWithImpl<$Res>;
-  $Res call({Widget child});
+  $Res call({DialogFrame frame});
 }
 
 /// @nodoc
@@ -111,13 +111,13 @@ class _$ShowDialogBlocEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? child = freezed,
+    Object? frame = freezed,
   }) {
     return _then(ShowDialogBlocEvent(
-      child == freezed
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Widget,
+      frame == freezed
+          ? _value.frame
+          : frame // ignore: cast_nullable_to_non_nullable
+              as DialogFrame,
     ));
   }
 }
@@ -125,27 +125,27 @@ class _$ShowDialogBlocEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ShowDialogBlocEvent extends ShowDialogBlocEvent {
-  const _$ShowDialogBlocEvent(this.child) : super._();
+  const _$ShowDialogBlocEvent(this.frame) : super._();
 
   @override
-  final Widget child;
+  final DialogFrame frame;
 
   @override
   String toString() {
-    return 'DialogBlocEvent.showDialog(child: $child)';
+    return 'DialogBlocEvent.showDialog(frame: $frame)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is ShowDialogBlocEvent &&
-            (identical(other.child, child) ||
-                const DeepCollectionEquality().equals(other.child, child)));
+            (identical(other.frame, frame) ||
+                const DeepCollectionEquality().equals(other.frame, frame)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(child);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(frame);
 
   @JsonKey(ignore: true)
   @override
@@ -155,30 +155,30 @@ class _$ShowDialogBlocEvent extends ShowDialogBlocEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Widget child) showDialog,
+    required TResult Function(DialogFrame frame) showDialog,
     required TResult Function() closeDialog,
   }) {
-    return showDialog(child);
+    return showDialog(frame);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Widget child)? showDialog,
+    TResult Function(DialogFrame frame)? showDialog,
     TResult Function()? closeDialog,
   }) {
-    return showDialog?.call(child);
+    return showDialog?.call(frame);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Widget child)? showDialog,
+    TResult Function(DialogFrame frame)? showDialog,
     TResult Function()? closeDialog,
     required TResult orElse(),
   }) {
     if (showDialog != null) {
-      return showDialog(child);
+      return showDialog(frame);
     }
     return orElse();
   }
@@ -216,10 +216,10 @@ class _$ShowDialogBlocEvent extends ShowDialogBlocEvent {
 }
 
 abstract class ShowDialogBlocEvent extends DialogBlocEvent {
-  const factory ShowDialogBlocEvent(Widget child) = _$ShowDialogBlocEvent;
+  const factory ShowDialogBlocEvent(DialogFrame frame) = _$ShowDialogBlocEvent;
   const ShowDialogBlocEvent._() : super._();
 
-  Widget get child => throw _privateConstructorUsedError;
+  DialogFrame get frame => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ShowDialogBlocEventCopyWith<ShowDialogBlocEvent> get copyWith =>
       throw _privateConstructorUsedError;
@@ -265,7 +265,7 @@ class _$CloseDialogBlocEvent extends CloseDialogBlocEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Widget child) showDialog,
+    required TResult Function(DialogFrame frame) showDialog,
     required TResult Function() closeDialog,
   }) {
     return closeDialog();
@@ -274,7 +274,7 @@ class _$CloseDialogBlocEvent extends CloseDialogBlocEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Widget child)? showDialog,
+    TResult Function(DialogFrame frame)? showDialog,
     TResult Function()? closeDialog,
   }) {
     return closeDialog?.call();
@@ -283,7 +283,7 @@ class _$CloseDialogBlocEvent extends CloseDialogBlocEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Widget child)? showDialog,
+    TResult Function(DialogFrame frame)? showDialog,
     TResult Function()? closeDialog,
     required TResult orElse(),
   }) {
@@ -334,9 +334,9 @@ abstract class CloseDialogBlocEvent extends DialogBlocEvent {
 class _$DialogBlocStateTearOff {
   const _$DialogBlocStateTearOff();
 
-  ShowDialogBlocState show(Widget child) {
+  ShowDialogBlocState show(DialogFrame frame) {
     return ShowDialogBlocState(
-      child,
+      frame,
     );
   }
 
@@ -352,19 +352,19 @@ const $DialogBlocState = _$DialogBlocStateTearOff();
 mixin _$DialogBlocState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Widget child) show,
+    required TResult Function(DialogFrame frame) show,
     required TResult Function() hide,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Widget child)? show,
+    TResult Function(DialogFrame frame)? show,
     TResult Function()? hide,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Widget child)? show,
+    TResult Function(DialogFrame frame)? show,
     TResult Function()? hide,
     required TResult orElse(),
   }) =>
@@ -412,7 +412,7 @@ abstract class $ShowDialogBlocStateCopyWith<$Res> {
   factory $ShowDialogBlocStateCopyWith(
           ShowDialogBlocState value, $Res Function(ShowDialogBlocState) then) =
       _$ShowDialogBlocStateCopyWithImpl<$Res>;
-  $Res call({Widget child});
+  $Res call({DialogFrame frame});
 }
 
 /// @nodoc
@@ -428,13 +428,13 @@ class _$ShowDialogBlocStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? child = freezed,
+    Object? frame = freezed,
   }) {
     return _then(ShowDialogBlocState(
-      child == freezed
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Widget,
+      frame == freezed
+          ? _value.frame
+          : frame // ignore: cast_nullable_to_non_nullable
+              as DialogFrame,
     ));
   }
 }
@@ -442,27 +442,27 @@ class _$ShowDialogBlocStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ShowDialogBlocState extends ShowDialogBlocState {
-  const _$ShowDialogBlocState(this.child) : super._();
+  const _$ShowDialogBlocState(this.frame) : super._();
 
   @override
-  final Widget child;
+  final DialogFrame frame;
 
   @override
   String toString() {
-    return 'DialogBlocState.show(child: $child)';
+    return 'DialogBlocState.show(frame: $frame)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is ShowDialogBlocState &&
-            (identical(other.child, child) ||
-                const DeepCollectionEquality().equals(other.child, child)));
+            (identical(other.frame, frame) ||
+                const DeepCollectionEquality().equals(other.frame, frame)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(child);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(frame);
 
   @JsonKey(ignore: true)
   @override
@@ -472,30 +472,30 @@ class _$ShowDialogBlocState extends ShowDialogBlocState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Widget child) show,
+    required TResult Function(DialogFrame frame) show,
     required TResult Function() hide,
   }) {
-    return show(child);
+    return show(frame);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Widget child)? show,
+    TResult Function(DialogFrame frame)? show,
     TResult Function()? hide,
   }) {
-    return show?.call(child);
+    return show?.call(frame);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Widget child)? show,
+    TResult Function(DialogFrame frame)? show,
     TResult Function()? hide,
     required TResult orElse(),
   }) {
     if (show != null) {
-      return show(child);
+      return show(frame);
     }
     return orElse();
   }
@@ -533,10 +533,10 @@ class _$ShowDialogBlocState extends ShowDialogBlocState {
 }
 
 abstract class ShowDialogBlocState extends DialogBlocState {
-  const factory ShowDialogBlocState(Widget child) = _$ShowDialogBlocState;
+  const factory ShowDialogBlocState(DialogFrame frame) = _$ShowDialogBlocState;
   const ShowDialogBlocState._() : super._();
 
-  Widget get child => throw _privateConstructorUsedError;
+  DialogFrame get frame => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ShowDialogBlocStateCopyWith<ShowDialogBlocState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -582,7 +582,7 @@ class _$HideDialogBlocState extends HideDialogBlocState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Widget child) show,
+    required TResult Function(DialogFrame frame) show,
     required TResult Function() hide,
   }) {
     return hide();
@@ -591,7 +591,7 @@ class _$HideDialogBlocState extends HideDialogBlocState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Widget child)? show,
+    TResult Function(DialogFrame frame)? show,
     TResult Function()? hide,
   }) {
     return hide?.call();
@@ -600,7 +600,7 @@ class _$HideDialogBlocState extends HideDialogBlocState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Widget child)? show,
+    TResult Function(DialogFrame frame)? show,
     TResult Function()? hide,
     required TResult orElse(),
   }) {

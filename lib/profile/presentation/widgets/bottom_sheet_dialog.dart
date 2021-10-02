@@ -41,7 +41,10 @@ class BottomSheetDialogJune extends StatelessWidget {
             'запросить',
             ' на почту.',
           ],
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context);
+            sl<DialogBlocBloc>().add(ShowDialogBlocEvent(DialogFrame.two));
+          },
         ),
         CheckListWidget(
             text: [
@@ -51,7 +54,7 @@ class BottomSheetDialogJune extends StatelessWidget {
             ],
             onTap: () {
               Navigator.pop(context);
-              sl<DialogBlocBloc>().add(ShowDialogBlocEvent(Container()));
+              sl<DialogBlocBloc>().add(ShowDialogBlocEvent(DialogFrame.one));
             }),
         CheckListWidget(
           text: [

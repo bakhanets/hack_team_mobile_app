@@ -8,7 +8,11 @@ import 'package:hack_team_flutter_app/injection_container.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/button_app.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/event_card.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/frame_five.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/frame_four.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/frame_one.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/frame_three.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/frame_two.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/notification_header_widget.dart';
 import 'package:hack_team_flutter_app/service/api.dart';
 import 'package:hack_team_flutter_app/service/dialog_bloc.dart';
@@ -25,38 +29,44 @@ class ProfileScreen extends StatelessWidget {
       listener: (contetx, state) {
         log('state dialog');
         state.when(
-            show: (child) {
-              DialogService.showAlertDialog(
-                context: context,
-                child: FrameOneView(),
-                // child: Column(
-                //   children: [
-                //     ButtonApp(
-                //         onTap: () {
-                //           Navigator.pop(context);
-                //           DialogService.showAlertDialog(
-                //             context: context,
-                //             child: ButtonApp(
-                //                 onTap: () {
-                //                   Navigator.pop(context);
-                //                 },
-                //                 text: 'Вернуться в профиль'),
-                //             barrierLabel: 'tte',
-                //             title: 'Отлично, запрос отправлен!',
-                //           );
-                //         },
-                //         text: 'Запросить'),
-                //     TextButton(
-                //       onPressed: () {
-                //         Navigator.pop(context);
-                //       },
-                //       child: Text('Нет, спасибо'),
-                //     )
-                //   ],
-                // ),
-                title: 'Запросить чек-лист?',
-                barrierLabel: 'label',
-              );
+            show: (frame) {
+              switch (frame) {
+                case DialogFrame.one:
+                  DialogService.showAlertDialog(
+                    context: context,
+                    child: FrameOneView(),
+                    barrierLabel: 'one',
+                  );
+                  break;
+                case DialogFrame.two:
+                  DialogService.showAlertDialog(
+                    context: context,
+                    child: FrameTwo(),
+                    barrierLabel: 'two',
+                  );
+                  break;
+                case DialogFrame.three:
+                  DialogService.showAlertDialog(
+                    context: context,
+                    child: FrameThree(),
+                    barrierLabel: 'three',
+                  );
+                  break;
+                case DialogFrame.five:
+                  DialogService.showAlertDialog(
+                    context: context,
+                    child: FrameFive(),
+                    barrierLabel: 'five',
+                  );
+                  break;
+                case DialogFrame.four:
+                  DialogService.showAlertDialog(
+                    context: context,
+                    child: FrameFour(),
+                    barrierLabel: 'four',
+                  );
+                  break;
+              }
             },
             hide: () {});
       },
