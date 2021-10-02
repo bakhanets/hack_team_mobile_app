@@ -1,13 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog_june.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog_senior.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog_test.dart';
 
 class NotificationHeaderWidget extends StatelessWidget {
   const NotificationHeaderWidget({Key? key, required this.status})
       : super(key: key);
   final int status;
-  final bool isPolling = false;
+
+  Widget get statusWidget {
+    switch (status) {
+      case 1:
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              '🤩 Вы с нами уже ',
+              style: TextStyle(color: Colors.grey),
+            ),
+            Text(
+              '12 дней',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ],
+        );
+      case 3:
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              '🤩 Вы с нами уже ',
+              style: TextStyle(color: Colors.grey),
+            ),
+            Text(
+              '278 дней',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ],
+        );
+
+      default:
+        return Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.circle,
+              size: 5,
+              color: Colors.red,
+            ),
+            Text(
+              '🤔 Что-то новое',
+              style: TextStyle(color: Colors.grey),
+            ),
+          ],
+        );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +87,7 @@ class NotificationHeaderWidget extends StatelessWidget {
               case 2:
                 return ButtomSheetDialogTest();
               default:
-                return ButtomSheetDialogTest();
+                return BottomSheetDialogSenior();
             }
           },
         );
@@ -44,24 +99,25 @@ class NotificationHeaderWidget extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(16.0),
         ),
-        child: !isPolling
-            ? Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    '🤩 Вы с нами уже ',
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  Text(
-                    '12 дней',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
-              )
-            : Text('Опрос'),
+        child: statusWidget,
+        // child: !isPolling
+        //     ? Row(
+        //         mainAxisSize: MainAxisSize.min,
+        //         children: [
+        //           Text(
+        //             '🤩 Вы с нами уже ',
+        //             style: TextStyle(color: Colors.grey),
+        //           ),
+        //           Text(
+        //             '12 дней',
+        //             style: TextStyle(
+        //               color: Colors.black,
+        //               fontWeight: FontWeight.bold,
+        //             ),
+        //           )
+        //         ],
+        //       )
+        //     : Text('Опрос'),
       ),
     );
   }
