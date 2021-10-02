@@ -21,12 +21,14 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 class _$UserModelTearOff {
   const _$UserModelTearOff();
 
-  _UserModel call(String name, String surname, String position, String email) {
+  _UserModel call(
+      String name, String surname, String position, String email, int status) {
     return _UserModel(
       name,
       surname,
       position,
       email,
+      status,
     );
   }
 
@@ -44,6 +46,7 @@ mixin _$UserModel {
   String get surname => throw _privateConstructorUsedError;
   String get position => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  int get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +58,8 @@ mixin _$UserModel {
 abstract class $UserModelCopyWith<$Res> {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
       _$UserModelCopyWithImpl<$Res>;
-  $Res call({String name, String surname, String position, String email});
+  $Res call(
+      {String name, String surname, String position, String email, int status});
 }
 
 /// @nodoc
@@ -72,6 +76,7 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
     Object? surname = freezed,
     Object? position = freezed,
     Object? email = freezed,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -90,6 +95,10 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -100,7 +109,8 @@ abstract class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
           _UserModel value, $Res Function(_UserModel) then) =
       __$UserModelCopyWithImpl<$Res>;
   @override
-  $Res call({String name, String surname, String position, String email});
+  $Res call(
+      {String name, String surname, String position, String email, int status});
 }
 
 /// @nodoc
@@ -118,6 +128,7 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
     Object? surname = freezed,
     Object? position = freezed,
     Object? email = freezed,
+    Object? status = freezed,
   }) {
     return _then(_UserModel(
       name == freezed
@@ -136,6 +147,10 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -143,7 +158,7 @@ class __$UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserModel implements _UserModel {
-  _$_UserModel(this.name, this.surname, this.position, this.email);
+  _$_UserModel(this.name, this.surname, this.position, this.email, this.status);
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
@@ -156,10 +171,12 @@ class _$_UserModel implements _UserModel {
   final String position;
   @override
   final String email;
+  @override
+  final int status;
 
   @override
   String toString() {
-    return 'UserModel(name: $name, surname: $surname, position: $position, email: $email)';
+    return 'UserModel(name: $name, surname: $surname, position: $position, email: $email, status: $status)';
   }
 
   @override
@@ -175,7 +192,9 @@ class _$_UserModel implements _UserModel {
                 const DeepCollectionEquality()
                     .equals(other.position, position)) &&
             (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)));
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)));
   }
 
   @override
@@ -184,7 +203,8 @@ class _$_UserModel implements _UserModel {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(surname) ^
       const DeepCollectionEquality().hash(position) ^
-      const DeepCollectionEquality().hash(email);
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(status);
 
   @JsonKey(ignore: true)
   @override
@@ -198,9 +218,8 @@ class _$_UserModel implements _UserModel {
 }
 
 abstract class _UserModel implements UserModel {
-  factory _UserModel(
-          String name, String surname, String position, String email) =
-      _$_UserModel;
+  factory _UserModel(String name, String surname, String position, String email,
+      int status) = _$_UserModel;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
@@ -213,6 +232,8 @@ abstract class _UserModel implements UserModel {
   String get position => throw _privateConstructorUsedError;
   @override
   String get email => throw _privateConstructorUsedError;
+  @override
+  int get status => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserModelCopyWith<_UserModel> get copyWith =>

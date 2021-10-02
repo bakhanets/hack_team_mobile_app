@@ -4,7 +4,9 @@ import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_
 import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog_test.dart';
 
 class NotificationHeaderWidget extends StatelessWidget {
-  const NotificationHeaderWidget({Key? key}) : super(key: key);
+  const NotificationHeaderWidget({Key? key, required this.status})
+      : super(key: key);
+  final int status;
   final bool isPolling = false;
 
   @override
@@ -24,9 +26,14 @@ class NotificationHeaderWidget extends StatelessWidget {
             maxWidth: MediaQuery.of(context).size.width * 0.8,
           ),
           builder: (context) {
-            return ButtomSheetDialogTest();
-
-            // return BottomSheetDialogJune();
+            switch (status) {
+              case 1:
+                return BottomSheetDialogJune();
+              case 2:
+                return ButtomSheetDialogTest();
+              default:
+                return ButtomSheetDialogTest();
+            }
           },
         );
       },

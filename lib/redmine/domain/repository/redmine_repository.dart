@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:hack_team_flutter_app/profile/models/profile_info_model.dart';
 import 'package:hack_team_flutter_app/redmine/data/api_redmine.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/players.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/project_model.dart';
@@ -48,6 +49,15 @@ class RedmineRepository {
     try {
       final detail = await apiRedmine.getProjectById(id);
       return Right(detail);
+    } catch (e) {
+      return Left(Exception());
+    }
+  }
+
+  Future<Either<Exception, ProfileInfoModel>> getProfileInfo() async {
+    try {
+      final info = await apiRedmine.getPrifileInfo();
+      return Right(info);
     } catch (e) {
       return Left(Exception());
     }

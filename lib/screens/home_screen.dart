@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
+import 'package:hack_team_flutter_app/profile/data/profile_bloc.dart';
 import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
 import 'package:hack_team_flutter_app/screens/redmine_screen.dart';
 import 'package:hack_team_flutter_app/screens/main_screen.dart';
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       sl<BottomNavBarBloc>().add(ToDocumentBottomNavBarEvent());
     } else {
       sl<BottomNavBarBloc>().add(ToProfileBottomNavBarEvent());
+      sl<ProfileBloc>().add(ReadProfileEvent());
     }
     setState(() {
       selectedItem = index;

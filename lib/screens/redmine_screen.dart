@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hack_team_flutter_app/injection_container.dart';
-import 'package:hack_team_flutter_app/redmine/domain/bloc/project_bloc.dart';
-import 'package:hack_team_flutter_app/redmine/domain/repository/redmine_repository.dart';
 import 'package:hack_team_flutter_app/redmine/presentation/project_base.dart';
 
 class RedmineScreen extends StatelessWidget {
