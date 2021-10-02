@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hack_team_flutter_app/constatns.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
-import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog_june.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/button_app.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/event_card.dart';
 import 'package:hack_team_flutter_app/profile/presentation/widgets/frame_five.dart';

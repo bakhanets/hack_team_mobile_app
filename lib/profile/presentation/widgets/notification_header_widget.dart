@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog_june.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/bottom_sheet_dialog_test.dart';
 
 class NotificationHeaderWidget extends StatelessWidget {
   const NotificationHeaderWidget({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class NotificationHeaderWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet<void>(
+          isScrollControlled: true,
           context: context,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
@@ -22,7 +24,9 @@ class NotificationHeaderWidget extends StatelessWidget {
             maxWidth: MediaQuery.of(context).size.width * 0.8,
           ),
           builder: (context) {
-            return BottomSheetDialogJune();
+            return ButtomSheetDialogTest();
+
+            // return BottomSheetDialogJune();
           },
         );
       },

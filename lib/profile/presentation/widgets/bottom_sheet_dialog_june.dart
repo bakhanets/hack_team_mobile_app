@@ -14,7 +14,9 @@ class BottomSheetDialogJune extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        //height: MediaQuery.of(context).size.height,
         child: Column(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
@@ -67,6 +69,14 @@ class BottomSheetDialogJune extends StatelessWidget {
             sl<BottomNavBarBloc>().add(ToDocumentBottomNavBarEvent());
           },
         ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ButtonApp(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              text: 'Понятно'),
+        )
       ],
     ));
   }
