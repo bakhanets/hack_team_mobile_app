@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
-import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/detail_project_model.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/players.dart';
 import 'package:hack_team_flutter_app/routing/bloc/navigation_pages_bloc.dart';
 
 class DetailProjectInfo extends StatelessWidget {
-  const DetailProjectInfo({Key? key, required this.model}) : super(key: key);
-  final DetailProjectModel model;
+  const DetailProjectInfo({Key? key, required this.players, required this.id})
+      : super(key: key);
+  final List<Players> players;
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,10 @@ class DetailProjectInfo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
               ),
               child: ListTile(
-                onTap: () {},
+                onTap: () {
+                  sl<NavigationPagesBloc>()
+                      .add(ToTaskProjectNavigationPagesEvent(id));
+                },
                 leading: Icon(Icons.layers),
                 title: Text('Задачи'),
                 trailing: Icon(Icons.arrow_forward),

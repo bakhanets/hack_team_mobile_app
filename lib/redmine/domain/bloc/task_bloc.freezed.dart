@@ -17,8 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TaskEventTearOff {
   const _$TaskEventTearOff();
 
-  ReadTaskEvent read() {
-    return const ReadTaskEvent();
+  ReadTaskEvent read(int id) {
+    return ReadTaskEvent(
+      id,
+    );
   }
 }
 
@@ -27,19 +29,21 @@ const $TaskEvent = _$TaskEventTearOff();
 
 /// @nodoc
 mixin _$TaskEvent {
+  int get id => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() read,
+    required TResult Function(int id) read,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? read,
+    TResult Function(int id)? read,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? read,
+    TResult Function(int id)? read,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,12 +63,17 @@ mixin _$TaskEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $TaskEventCopyWith<TaskEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TaskEventCopyWith<$Res> {
   factory $TaskEventCopyWith(TaskEvent value, $Res Function(TaskEvent) then) =
       _$TaskEventCopyWithImpl<$Res>;
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -74,13 +83,28 @@ class _$TaskEventCopyWithImpl<$Res> implements $TaskEventCopyWith<$Res> {
   final TaskEvent _value;
   // ignore: unused_field
   final $Res Function(TaskEvent) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $ReadTaskEventCopyWith<$Res> {
+abstract class $ReadTaskEventCopyWith<$Res>
+    implements $TaskEventCopyWith<$Res> {
   factory $ReadTaskEventCopyWith(
           ReadTaskEvent value, $Res Function(ReadTaskEvent) then) =
       _$ReadTaskEventCopyWithImpl<$Res>;
+  @override
+  $Res call({int id});
 }
 
 /// @nodoc
@@ -92,50 +116,74 @@ class _$ReadTaskEventCopyWithImpl<$Res> extends _$TaskEventCopyWithImpl<$Res>
 
   @override
   ReadTaskEvent get _value => super._value as ReadTaskEvent;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(ReadTaskEvent(
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ReadTaskEvent extends ReadTaskEvent {
-  const _$ReadTaskEvent() : super._();
+  const _$ReadTaskEvent(this.id) : super._();
+
+  @override
+  final int id;
 
   @override
   String toString() {
-    return 'TaskEvent.read()';
+    return 'TaskEvent.read(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ReadTaskEvent);
+    return identical(this, other) ||
+        (other is ReadTaskEvent &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+
+  @JsonKey(ignore: true)
+  @override
+  $ReadTaskEventCopyWith<ReadTaskEvent> get copyWith =>
+      _$ReadTaskEventCopyWithImpl<ReadTaskEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() read,
+    required TResult Function(int id) read,
   }) {
-    return read();
+    return read(id);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? read,
+    TResult Function(int id)? read,
   }) {
-    return read?.call();
+    return read?.call(id);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? read,
+    TResult Function(int id)? read,
     required TResult orElse(),
   }) {
     if (read != null) {
-      return read();
+      return read(id);
     }
     return orElse();
   }
@@ -170,8 +218,15 @@ class _$ReadTaskEvent extends ReadTaskEvent {
 }
 
 abstract class ReadTaskEvent extends TaskEvent {
-  const factory ReadTaskEvent() = _$ReadTaskEvent;
+  const factory ReadTaskEvent(int id) = _$ReadTaskEvent;
   const ReadTaskEvent._() : super._();
+
+  @override
+  int get id => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $ReadTaskEventCopyWith<ReadTaskEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

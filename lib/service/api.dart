@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:hack_team_flutter_app/models/photo_model.dart';
+import 'package:hack_team_flutter_app/redmine/data/api_redmine.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
@@ -64,7 +65,7 @@ class ApiService {
   }
 
   Future<bool> uploadImage(PhotoModel photo) async {
-    var url = 'https://kleninm.com/api/download/image';
+    var url = hostUrl + 'api/download/image';
     return fetchBool(
       urlPath: url,
       method: FetchMethod.post,

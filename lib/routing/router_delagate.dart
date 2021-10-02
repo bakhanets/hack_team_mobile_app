@@ -33,9 +33,11 @@ class MainRouterDelegate extends RouterDelegate<String>
               key: ValueKey('detail'),
               child: DetailProjectPage(id: id),
             ),
-            taskProject: () => MaterialPage(
+            taskProject: (id) => MaterialPage(
               key: ValueKey('task'),
-              child: TaskProjectPage(),
+              child: TaskProjectPage(
+                id: id,
+              ),
             ),
           ),
         ];

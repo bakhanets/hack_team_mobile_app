@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/task/task_model.dart';
+import 'package:hack_team_flutter_app/redmine/domain/repository/redmine_repository.dart';
 
 part 'task_bloc.freezed.dart';
 
@@ -8,7 +9,7 @@ part 'task_bloc.freezed.dart';
 class TaskEvent with _$TaskEvent {
   const TaskEvent._();
 
-  const factory TaskEvent.read() = ReadTaskEvent;
+  const factory TaskEvent.read(int id) = ReadTaskEvent;
 }
 
 @freezed
@@ -23,7 +24,8 @@ class TaskState with _$TaskState {
 }
 
 class TaskBloc extends Bloc<TaskEvent, TaskState> {
-  TaskBloc() : super(const LoadingTaskState());
+  TaskBloc(this.redmineRepository) : super(const LoadingTaskState());
+  final RedmineRepository redmineRepository;
 
   @override
   Stream<TaskState> mapEventToState(TaskEvent event) =>
@@ -31,7 +33,13 @@ class TaskBloc extends Bloc<TaskEvent, TaskState> {
         read: _read,
       );
 
-  Stream<TaskState> _read() async* {
-    // ...
+  Stream<TaskState> _read(int id) async* {
+    yield LoadingTaskState();
+
+    final tasksOrFailure = await redmineRepository.getListTasks(id);
+    yield tasksOrFailure.fold(
+      (l) => FailureTaskState(),
+      (r) => LoadedTaskState(r),
+    );
   }
 }

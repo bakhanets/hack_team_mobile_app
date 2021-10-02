@@ -1,19 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'detail_project_model.dart';
+part of 't_author.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DetailProjectModel _$$_DetailProjectModelFromJson(
-        Map<String, dynamic> json) =>
-    _$_DetailProjectModel(
-      json['id'] as String,
+_$_TAuthor _$$_TAuthorFromJson(Map<String, dynamic> json) => _$_TAuthor(
+      json['id'] as int,
+      json['name'] as String,
     );
 
-Map<String, dynamic> _$$_DetailProjectModelToJson(
-        _$_DetailProjectModel instance) =>
+Map<String, dynamic> _$$_TAuthorToJson(_$_TAuthor instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'name': instance.name,
     };

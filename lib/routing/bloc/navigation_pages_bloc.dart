@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -12,7 +14,7 @@ class NavigationPagesEvent with _$NavigationPagesEvent {
   const factory NavigationPagesEvent.toDetailProject(int id) =
       ToDetailProjectNavigationPagesEvent;
 
-  const factory NavigationPagesEvent.toTaskProject() =
+  const factory NavigationPagesEvent.toTaskProject(int id) =
       ToTaskProjectNavigationPagesEvent;
 }
 
@@ -25,7 +27,7 @@ class NavigationPagesState with _$NavigationPagesState {
   const factory NavigationPagesState.detailProject(int id) =
       DetailProjectNavigationPagesState;
 
-  const factory NavigationPagesState.taskProject() =
+  const factory NavigationPagesState.taskProject(int id) =
       TaskProjectNavigationPagesState;
 }
 
@@ -45,8 +47,9 @@ class NavigationPagesBloc
     yield HomeNavigationPagesState();
   }
 
-  Stream<NavigationPagesState> _toTaskProject() async* {
-    yield TaskProjectNavigationPagesState();
+  Stream<NavigationPagesState> _toTaskProject(int id) async* {
+    log(id.toString());
+    yield TaskProjectNavigationPagesState(id);
   }
 
   Stream<NavigationPagesState> _toDetailProject(int id) async* {

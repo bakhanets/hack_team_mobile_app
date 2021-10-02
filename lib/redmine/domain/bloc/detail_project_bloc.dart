@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/detail_project_model.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/players.dart';
 import 'package:hack_team_flutter_app/redmine/domain/repository/redmine_repository.dart';
 
 part 'detail_project_bloc.freezed.dart';
@@ -18,7 +18,7 @@ class DetailProjectState with _$DetailProjectState {
 
   const factory DetailProjectState.loading() = LoadingDetailProjectState;
 
-  const factory DetailProjectState.loaded(DetailProjectModel result) =
+  const factory DetailProjectState.loaded(List<Players> result) =
       LoadedDetailProjectState;
 
   const factory DetailProjectState.failure() = FailureDetailProjectState;

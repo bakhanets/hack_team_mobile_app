@@ -241,7 +241,7 @@ class _$DetailProjectStateTearOff {
     return const LoadingDetailProjectState();
   }
 
-  LoadedDetailProjectState loaded(DetailProjectModel result) {
+  LoadedDetailProjectState loaded(List<Players> result) {
     return LoadedDetailProjectState(
       result,
     );
@@ -260,21 +260,21 @@ mixin _$DetailProjectState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(DetailProjectModel result) loaded,
+    required TResult Function(List<Players> result) loaded,
     required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(DetailProjectModel result)? loaded,
+    TResult Function(List<Players> result)? loaded,
     TResult Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(DetailProjectModel result)? loaded,
+    TResult Function(List<Players> result)? loaded,
     TResult Function()? failure,
     required TResult orElse(),
   }) =>
@@ -362,7 +362,7 @@ class _$LoadingDetailProjectState extends LoadingDetailProjectState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(DetailProjectModel result) loaded,
+    required TResult Function(List<Players> result) loaded,
     required TResult Function() failure,
   }) {
     return loading();
@@ -372,7 +372,7 @@ class _$LoadingDetailProjectState extends LoadingDetailProjectState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(DetailProjectModel result)? loaded,
+    TResult Function(List<Players> result)? loaded,
     TResult Function()? failure,
   }) {
     return loading?.call();
@@ -382,7 +382,7 @@ class _$LoadingDetailProjectState extends LoadingDetailProjectState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(DetailProjectModel result)? loaded,
+    TResult Function(List<Players> result)? loaded,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -437,9 +437,7 @@ abstract class $LoadedDetailProjectStateCopyWith<$Res> {
   factory $LoadedDetailProjectStateCopyWith(LoadedDetailProjectState value,
           $Res Function(LoadedDetailProjectState) then) =
       _$LoadedDetailProjectStateCopyWithImpl<$Res>;
-  $Res call({DetailProjectModel result});
-
-  $DetailProjectModelCopyWith<$Res> get result;
+  $Res call({List<Players> result});
 }
 
 /// @nodoc
@@ -462,15 +460,8 @@ class _$LoadedDetailProjectStateCopyWithImpl<$Res>
       result == freezed
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as DetailProjectModel,
+              as List<Players>,
     ));
-  }
-
-  @override
-  $DetailProjectModelCopyWith<$Res> get result {
-    return $DetailProjectModelCopyWith<$Res>(_value.result, (value) {
-      return _then(_value.copyWith(result: value));
-    });
   }
 }
 
@@ -480,7 +471,7 @@ class _$LoadedDetailProjectState extends LoadedDetailProjectState {
   const _$LoadedDetailProjectState(this.result) : super._();
 
   @override
-  final DetailProjectModel result;
+  final List<Players> result;
 
   @override
   String toString() {
@@ -509,7 +500,7 @@ class _$LoadedDetailProjectState extends LoadedDetailProjectState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(DetailProjectModel result) loaded,
+    required TResult Function(List<Players> result) loaded,
     required TResult Function() failure,
   }) {
     return loaded(result);
@@ -519,7 +510,7 @@ class _$LoadedDetailProjectState extends LoadedDetailProjectState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(DetailProjectModel result)? loaded,
+    TResult Function(List<Players> result)? loaded,
     TResult Function()? failure,
   }) {
     return loaded?.call(result);
@@ -529,7 +520,7 @@ class _$LoadedDetailProjectState extends LoadedDetailProjectState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(DetailProjectModel result)? loaded,
+    TResult Function(List<Players> result)? loaded,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -575,11 +566,11 @@ class _$LoadedDetailProjectState extends LoadedDetailProjectState {
 }
 
 abstract class LoadedDetailProjectState extends DetailProjectState {
-  const factory LoadedDetailProjectState(DetailProjectModel result) =
+  const factory LoadedDetailProjectState(List<Players> result) =
       _$LoadedDetailProjectState;
   const LoadedDetailProjectState._() : super._();
 
-  DetailProjectModel get result => throw _privateConstructorUsedError;
+  List<Players> get result => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LoadedDetailProjectStateCopyWith<LoadedDetailProjectState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -627,7 +618,7 @@ class _$FailureDetailProjectState extends FailureDetailProjectState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(DetailProjectModel result) loaded,
+    required TResult Function(List<Players> result) loaded,
     required TResult Function() failure,
   }) {
     return failure();
@@ -637,7 +628,7 @@ class _$FailureDetailProjectState extends FailureDetailProjectState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(DetailProjectModel result)? loaded,
+    TResult Function(List<Players> result)? loaded,
     TResult Function()? failure,
   }) {
     return failure?.call();
@@ -647,7 +638,7 @@ class _$FailureDetailProjectState extends FailureDetailProjectState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(DetailProjectModel result)? loaded,
+    TResult Function(List<Players> result)? loaded,
     TResult Function()? failure,
     required TResult orElse(),
   }) {

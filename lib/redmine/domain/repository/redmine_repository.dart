@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:hack_team_flutter_app/redmine/data/api_redmine.dart';
-import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/detail_project_model.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/players.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/project_model.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/task/task_model.dart';
 
@@ -32,16 +32,17 @@ class RedmineRepository {
     }
   }
 
-  Future<Either<Exception, List<TaskModel>>> getListTasks() async {
+  Future<Either<Exception, List<TaskModel>>> getListTasks(int id) async {
     try {
-      final tasks = await apiRedmine.getListTasks();
+      final tasks = await apiRedmine.getListTasks(id);
       return Right(tasks);
     } catch (e) {
+      log(e.toString());
       return Left(Exception());
     }
   }
 
-  Future<Either<Exception, DetailProjectModel>> getProjectById(int id) async {
+  Future<Either<Exception, List<Players>>> getProjectById(int id) async {
     try {
       final detail = await apiRedmine.getProjectById(id);
       return Right(detail);

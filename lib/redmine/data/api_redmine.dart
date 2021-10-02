@@ -1,4 +1,4 @@
-import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/detail_project_model.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/players.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/project_model.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/task/task_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,6 +12,8 @@ enum FetchMethod {
   post,
   delete,
 }
+
+var hostUrl = 'http://142.93.107.126/';
 
 class ApiRedmine {
   final SharedPreferences sharedPreferences;
@@ -44,6 +46,7 @@ class ApiRedmine {
         response = await _client.delete(url, headers: headers);
         break;
     }
+    log('server');
     log(response.body);
     log(response.statusCode.toString());
     if (response.statusCode == 200) {
@@ -70,8 +73,8 @@ class ApiRedmine {
   }
 
   Future<bool> login(String token) async {
-    var result = await fetchBool(
-        urlPath: 'https://kleninm.com/api/redmine/authorization');
+    var result =
+        await fetchBool(urlPath: hostUrl + 'api/redmine/authorization');
     if (result) {
       await sharedPreferences.setString('token', token);
     }
@@ -82,24 +85,25 @@ class ApiRedmine {
 
   Future<List<ProjectModel>> getAllProject() async {
     return getEntity<List<ProjectModel>>(
-      'https://kleninm.com/api/redmine/get-projects',
+      hostUrl + 'api/redmine/get-projects',
       (data) => (data['projects'] as List)
           .map((e) => ProjectModel.fromJson(e))
           .toList(),
     );
   }
 
-  Future<List<TaskModel>> getListTasks() async {
+  Future<List<TaskModel>> getListTasks(int id) async {
     return getEntity<List<TaskModel>>(
-      'https://kleninm.com/api/redmine/get-projects',
-      (data) => (data as List).map((e) => TaskModel.fromJson(e)).toList(),
+      hostUrl + 'api/redmine/get-issues/$id',
+      (data) =>
+          (data['issues'] as List).map((e) => TaskModel.fromJson(e)).toList(),
     );
   }
 
-  Future<DetailProjectModel> getProjectById(int id) async {
-    return getEntity<DetailProjectModel>(
-      'https://kleninm.com/api/redmine/get-projects',
-      (data) => DetailProjectModel.fromJson(data),
+  Future<List<Players>> getProjectById(int id) async {
+    return getEntity<List<Players>>(
+      hostUrl + 'api/redmine/get-membership/$id',
+      (data) => (data as List).map((e) => Players.fromJson(e)).toList(),
     );
   }
 }
