@@ -39,18 +39,18 @@ class LoginRedminePage extends StatelessWidget {
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(15.0),
             child: Text(
               'Мы используем Redmine для менеджмента задач в нашей работе. Выполните вход в аккаунт, чтобы продолжить',
               style: TextStyle(
                 color: Colors.grey,
                 fontSize: 16.0,
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
             ),
           ),
           Padding(
