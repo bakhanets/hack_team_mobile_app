@@ -87,7 +87,9 @@ class TaskCard extends StatelessWidget {
         },
         openBuilder: (BuildContext context,
             void Function({Object? returnValue}) action) {
-          return DetailTaskPage();
+          return DetailTaskPage(
+            task: task,
+          );
         },
       ),
     );

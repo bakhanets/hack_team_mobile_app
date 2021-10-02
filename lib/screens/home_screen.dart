@@ -57,14 +57,35 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         },
         builder: (context, state) {
-          return state.when(
-            document: () => RedmineScreen(),
-            profile: () => ProfileScreen(),
-            main: () => MainScreen(),
+          return AnimatedSwitcher(
+            duration: Duration(milliseconds: 750),
+            switchInCurve: Curves.linear,
+            switchOutCurve: Curves.linear,
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              const begin = Offset(-1.0, 0.0);
+              const end = Offset.zero;
+              final tween = Tween(begin: begin, end: end);
+
+              final offsetAnimation = animation.drive(tween);
+
+              return SlideTransition(
+                transformHitTests: false,
+                position: offsetAnimation,
+                // Tween<Offset>(begin: Offset(-2.0, 0.0), end: Offset.zero)
+                //     .animate(animation),
+                child: child,
+              );
+            },
+            child: state.when(
+              document: () => RedmineScreen(),
+              profile: () => ProfileScreen(),
+              main: () => MainScreen(),
+            ),
           );
         },
       ),
       bottomNavigationBar: CurvedNavigationBar(
+        index: selectedItem,
         color: Colors.blue,
         backgroundColor: Colors.transparent,
         items: <Widget>[

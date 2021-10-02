@@ -23,6 +23,7 @@ class TaskModel with _$TaskModel {
     String start_date,
     String created_on,
     String updated_on,
+    int hours,
   ) = _TaskModel;
 
   factory TaskModel.fromJson(Map<String, dynamic> json) =>

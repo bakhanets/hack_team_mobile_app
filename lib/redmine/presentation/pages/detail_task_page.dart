@@ -1,13 +1,18 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hack_team_flutter_app/constatns.dart';
+import 'package:hack_team_flutter_app/redmine/domain/model/task/task_model.dart';
 
 class DetailTaskPage extends StatelessWidget {
-  const DetailTaskPage({Key? key}) : super(key: key);
+  const DetailTaskPage({Key? key, required this.task}) : super(key: key);
+  final TaskModel task;
 
   @override
   Widget build(BuildContext context) {
+    log(task.hours.toString());
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -46,15 +51,16 @@ class DetailTaskPage extends StatelessWidget {
                 SizedBox(
                   height: 8.0,
                 ),
-                Text(desc),
+                Text(task.description),
                 SizedBox(
                   height: 24.0,
                 ),
-                Text(
-                  'Пользователь',
-                  style: AppUiStyles.subTitle,
-                ),
-                Text('Дмитрий Шаныгин'),
+                if (task.assigned_to != null)
+                  Text(
+                    'Пользователь',
+                    style: AppUiStyles.subTitle,
+                  ),
+                if (task.assigned_to != null) Text(task.assigned_to!.name),
                 SizedBox(
                   height: 32.0,
                 ),
@@ -66,7 +72,7 @@ class DetailTaskPage extends StatelessWidget {
                   height: 8.0,
                 ),
                 Text(
-                  '24.5 часов',
+                  '${task.hours} часов',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,

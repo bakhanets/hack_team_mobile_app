@@ -31,6 +31,7 @@ _$_TaskModel _$$_TaskModelFromJson(Map<String, dynamic> json) => _$_TaskModel(
       json['start_date'] as String,
       json['created_on'] as String,
       json['updated_on'] as String,
+      json['hours'] as int,
     );
 
 Map<String, dynamic> _$$_TaskModelToJson(_$_TaskModel instance) =>
@@ -47,4 +48,5 @@ Map<String, dynamic> _$$_TaskModelToJson(_$_TaskModel instance) =>
       'start_date': instance.start_date,
       'created_on': instance.created_on,
       'updated_on': instance.updated_on,
+      'hours': instance.hours,
     };

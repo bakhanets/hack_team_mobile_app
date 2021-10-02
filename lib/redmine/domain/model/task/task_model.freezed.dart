@@ -33,7 +33,8 @@ class _$TaskModelTearOff {
       String description,
       String start_date,
       String created_on,
-      String updated_on) {
+      String updated_on,
+      int hours) {
     return _TaskModel(
       id,
       project,
@@ -47,6 +48,7 @@ class _$TaskModelTearOff {
       start_date,
       created_on,
       updated_on,
+      hours,
     );
   }
 
@@ -72,6 +74,7 @@ mixin _$TaskModel {
   String get start_date => throw _privateConstructorUsedError;
   String get created_on => throw _privateConstructorUsedError;
   String get updated_on => throw _privateConstructorUsedError;
+  int get hours => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -95,7 +98,8 @@ abstract class $TaskModelCopyWith<$Res> {
       String description,
       String start_date,
       String created_on,
-      String updated_on});
+      String updated_on,
+      int hours});
 
   $TProjectCopyWith<$Res>? get project;
   $TTrackersCopyWith<$Res>? get tracker;
@@ -127,6 +131,7 @@ class _$TaskModelCopyWithImpl<$Res> implements $TaskModelCopyWith<$Res> {
     Object? start_date = freezed,
     Object? created_on = freezed,
     Object? updated_on = freezed,
+    Object? hours = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -177,6 +182,10 @@ class _$TaskModelCopyWithImpl<$Res> implements $TaskModelCopyWith<$Res> {
           ? _value.updated_on
           : updated_on // ignore: cast_nullable_to_non_nullable
               as String,
+      hours: hours == freezed
+          ? _value.hours
+          : hours // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 
@@ -265,7 +274,8 @@ abstract class _$TaskModelCopyWith<$Res> implements $TaskModelCopyWith<$Res> {
       String description,
       String start_date,
       String created_on,
-      String updated_on});
+      String updated_on,
+      int hours});
 
   @override
   $TProjectCopyWith<$Res>? get project;
@@ -304,6 +314,7 @@ class __$TaskModelCopyWithImpl<$Res> extends _$TaskModelCopyWithImpl<$Res>
     Object? start_date = freezed,
     Object? created_on = freezed,
     Object? updated_on = freezed,
+    Object? hours = freezed,
   }) {
     return _then(_TaskModel(
       id == freezed
@@ -354,6 +365,10 @@ class __$TaskModelCopyWithImpl<$Res> extends _$TaskModelCopyWithImpl<$Res>
           ? _value.updated_on
           : updated_on // ignore: cast_nullable_to_non_nullable
               as String,
+      hours == freezed
+          ? _value.hours
+          : hours // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -373,7 +388,8 @@ class _$_TaskModel implements _TaskModel {
       this.description,
       this.start_date,
       this.created_on,
-      this.updated_on);
+      this.updated_on,
+      this.hours);
 
   factory _$_TaskModel.fromJson(Map<String, dynamic> json) =>
       _$$_TaskModelFromJson(json);
@@ -402,10 +418,12 @@ class _$_TaskModel implements _TaskModel {
   final String created_on;
   @override
   final String updated_on;
+  @override
+  final int hours;
 
   @override
   String toString() {
-    return 'TaskModel(id: $id, project: $project, tracker: $tracker, status: $status, priority: $priority, author: $author, assigned_to: $assigned_to, subject: $subject, description: $description, start_date: $start_date, created_on: $created_on, updated_on: $updated_on)';
+    return 'TaskModel(id: $id, project: $project, tracker: $tracker, status: $status, priority: $priority, author: $author, assigned_to: $assigned_to, subject: $subject, description: $description, start_date: $start_date, created_on: $created_on, updated_on: $updated_on, hours: $hours)';
   }
 
   @override
@@ -444,7 +462,9 @@ class _$_TaskModel implements _TaskModel {
                     .equals(other.created_on, created_on)) &&
             (identical(other.updated_on, updated_on) ||
                 const DeepCollectionEquality()
-                    .equals(other.updated_on, updated_on)));
+                    .equals(other.updated_on, updated_on)) &&
+            (identical(other.hours, hours) ||
+                const DeepCollectionEquality().equals(other.hours, hours)));
   }
 
   @override
@@ -461,7 +481,8 @@ class _$_TaskModel implements _TaskModel {
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(start_date) ^
       const DeepCollectionEquality().hash(created_on) ^
-      const DeepCollectionEquality().hash(updated_on);
+      const DeepCollectionEquality().hash(updated_on) ^
+      const DeepCollectionEquality().hash(hours);
 
   @JsonKey(ignore: true)
   @override
@@ -487,7 +508,8 @@ abstract class _TaskModel implements TaskModel {
       String description,
       String start_date,
       String created_on,
-      String updated_on) = _$_TaskModel;
+      String updated_on,
+      int hours) = _$_TaskModel;
 
   factory _TaskModel.fromJson(Map<String, dynamic> json) =
       _$_TaskModel.fromJson;
@@ -516,6 +538,8 @@ abstract class _TaskModel implements TaskModel {
   String get created_on => throw _privateConstructorUsedError;
   @override
   String get updated_on => throw _privateConstructorUsedError;
+  @override
+  int get hours => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TaskModelCopyWith<_TaskModel> get copyWith =>
