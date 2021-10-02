@@ -4,6 +4,8 @@ import 'package:hack_team_flutter_app/redmine/domain/repository/redmine_reposito
 import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
 import 'package:hack_team_flutter_app/routing/bloc/navigation_pages_bloc.dart';
 import 'package:hack_team_flutter_app/service/api.dart';
+import 'package:hack_team_flutter_app/service/dialog_bloc.dart';
+import 'package:hack_team_flutter_app/service/dialog_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance;
@@ -13,6 +15,7 @@ Future<void> init() async {
       await SharedPreferences.getInstance();
 
   sl.registerLazySingleton<BottomNavBarBloc>(() => BottomNavBarBloc());
+  sl.registerLazySingleton<DialogBlocBloc>(() => DialogBlocBloc());
   sl.registerLazySingleton<NavigationPagesBloc>(() => NavigationPagesBloc());
   sl.registerLazySingleton(() => RedmineRepository(sl()));
   sl.registerLazySingleton(

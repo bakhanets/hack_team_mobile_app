@@ -1,11 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
+import 'package:hack_team_flutter_app/profile/presentation/widgets/button_app.dart';
 import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
+import 'package:hack_team_flutter_app/service/dialog_bloc.dart';
+import 'package:hack_team_flutter_app/service/dialog_service.dart';
 
-class BottomSheetDialog extends StatelessWidget {
-  const BottomSheetDialog({Key? key}) : super(key: key);
+class BottomSheetDialogJune extends StatelessWidget {
+  const BottomSheetDialogJune({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +44,15 @@ class BottomSheetDialog extends StatelessWidget {
           onTap: () {},
         ),
         CheckListWidget(
-          text: [
-            'За Вами закреплён свой наставник. Если есть вопросы - ',
-            'запросите помощь',
-            ', и вам непременно помогут!',
-          ],
-          onTap: () {},
-        ),
+            text: [
+              'За Вами закреплён свой наставник. Если есть вопросы - ',
+              'запросите помощь',
+              ', и вам непременно помогут!',
+            ],
+            onTap: () {
+              Navigator.pop(context);
+              sl<DialogBlocBloc>().add(ShowDialogBlocEvent(Container()));
+            }),
         CheckListWidget(
           text: [
             'Во время испытательного срока очень важно вовремя выполнять входящие задачи. Их можно найти во вкладке ',

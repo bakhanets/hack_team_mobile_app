@@ -7,6 +7,7 @@ import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
 import 'package:hack_team_flutter_app/routing/bloc/navigation_pages_bloc.dart';
 import 'package:hack_team_flutter_app/routing/main_router_info_parser.dart';
 import 'package:hack_team_flutter_app/routing/router_delagate.dart';
+import 'package:hack_team_flutter_app/service/dialog_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,7 @@ void main() async {
         ),
         BlocProvider(create: (context) => sl<BottomNavBarBloc>()),
         BlocProvider(create: (context) => sl<NavigationPagesBloc>()),
+        BlocProvider(create: (context) => sl<DialogBlocBloc>()),
       ],
       child: InitPage(),
     ),

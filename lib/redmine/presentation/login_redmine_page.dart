@@ -8,10 +8,9 @@ import 'package:hack_team_flutter_app/redmine/presentation/widgets/text_field_wr
 class LoginRedminePage extends StatelessWidget {
   LoginRedminePage({Key? key, required this.isFailure}) : super(key: key);
   final bool isFailure;
-  final nameController = TextEditingController(text: 'd.shanygin');
-  final passwordController = TextEditingController(text: 'USUp3eDvdM');
-  final teamController =
-      TextEditingController(text: 'https://redmine.simplex-software.ru');
+  final nameController = TextEditingController(text: 'admin');
+  final passwordController = TextEditingController(text: 'V6C5ss4*wBwQESu');
+  final teamController = TextEditingController(text: 'http://klenin.site/');
 
   void login(BuildContext context) {
     log('login function');

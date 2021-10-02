@@ -67,10 +67,11 @@ class ProjectListWidget extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    //subtitle: Text(projects[i].description),
-                    subtitle: Text(
-                        'Проект разработки мобильного приложения для E-legion'),
+                    subtitle: Text(projects[i].description),
                   ),
+                  //   subtitle: Text(
+                  //       'Проект разработки мобильного приложения для E-legion'),
+                  // ),
                 ),
               );
             }),

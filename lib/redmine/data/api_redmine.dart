@@ -13,7 +13,7 @@ enum FetchMethod {
   delete,
 }
 
-var hostUrl = 'http://142.93.107.126/';
+var hostUrl = 'http://kleninm.com/';
 
 class ApiRedmine {
   final SharedPreferences sharedPreferences;
