@@ -5,6 +5,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hack_team_flutter_app/constatns.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/task/task_model.dart';
+import 'package:hack_team_flutter_app/redmine/presentation/widgets/card_task.dart';
 
 class DetailTaskPage extends StatelessWidget {
   const DetailTaskPage({Key? key, required this.task}) : super(key: key);
@@ -38,11 +39,25 @@ class DetailTaskPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Тестирование сметы',
+                  task.project!.name,
                   style: AppUiStyles.title,
                 ),
                 SizedBox(
                   height: 16.0,
+                ),
+                Row(
+                  children: [
+                    PriorityCard(
+                      object: task.priority,
+                      isPriority: true,
+                      full: true,
+                    ),
+                    PriorityCard(
+                      object: task.status,
+                      isPriority: false,
+                      full: true,
+                    ),
+                  ],
                 ),
                 Text(
                   'Описание задачи',

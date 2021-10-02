@@ -187,10 +187,15 @@ class StatusColor {
 }
 
 class PriorityCard extends StatelessWidget {
-  const PriorityCard({Key? key, required this.object, required this.isPriority})
+  const PriorityCard(
+      {Key? key,
+      required this.object,
+      required this.isPriority,
+      this.full = false})
       : super(key: key);
   final dynamic object;
   final bool isPriority;
+  final bool full;
 
   Color nameToColorStatus(int value) {
     switch (value) {
@@ -232,10 +237,14 @@ class PriorityCard extends StatelessWidget {
     var text = '';
     if (!isPriority) {
       color = nameToColorStatus((object as TStatus).id);
-      text = (object as TStatus).name;
+      text = full
+          ? 'Задача ' + (object as TStatus).name
+          : (object as TStatus).name;
     } else {
       color = nameToColorPriority((object as TPriority).id);
-      text = (object as TPriority).name;
+      text = full
+          ? (object as TPriority).name + ' приоритет'
+          : (object as TPriority).name;
     }
     return Padding(
       padding: const EdgeInsets.all(5.0),
