@@ -11,14 +11,6 @@ class MainLoaded extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffFAFAFA),
-      // appBar: AppBar(
-      //   title: Text(
-      //     'События',
-      //     style: AppUiStyles.title,
-      //   ),
-      //   backgroundColor: Colors.transparent,
-      //   elevation: 0.0,
-      // ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
