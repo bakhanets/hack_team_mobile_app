@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hack_team_flutter_app/home/bloc/home_bloc.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
 import 'package:hack_team_flutter_app/profile/data/profile_bloc.dart';
 import 'package:hack_team_flutter_app/redmine/domain/bloc/project_bloc.dart';
@@ -25,6 +26,7 @@ void main() async {
         BlocProvider(create: (context) => sl<NavigationPagesBloc>()),
         BlocProvider(create: (context) => sl<DialogBlocBloc>()),
         BlocProvider(create: (context) => sl<ProfileBloc>()),
+        BlocProvider(create: (context) => sl<HomeBloc>()),
       ],
       child: InitPage(),
     ),

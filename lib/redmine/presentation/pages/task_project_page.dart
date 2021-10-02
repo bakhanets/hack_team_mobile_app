@@ -20,7 +20,7 @@ class TaskProjectPage extends StatelessWidget {
       create: (context) =>
           TaskBloc(sl<RedmineRepository>())..add(ReadTaskEvent(id)),
       child: Scaffold(
-        backgroundColor: Color(0xffE5E5E5),
+        backgroundColor: Color(0xffFAFAFA),
         appBar: AppBar(
           title: Text(
             'Обзор проекта',

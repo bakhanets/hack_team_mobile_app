@@ -18,7 +18,7 @@ class DetailProjectPage extends StatelessWidget {
   Widget build(BuildContext context) {
     log('id->$id');
     return Scaffold(
-      backgroundColor: Color(0xffE5E5E5),
+      backgroundColor: Color(0xffFAFAFA),
       appBar: AppBar(
         title: Text(
           'Проекты',

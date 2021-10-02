@@ -1,3 +1,4 @@
+import 'package:hack_team_flutter_app/home/models/home_model.dart';
 import 'package:hack_team_flutter_app/profile/models/profile_info_model.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/detail_project/players.dart';
 import 'package:hack_team_flutter_app/redmine/domain/model/project_model.dart';
@@ -124,5 +125,10 @@ class ApiRedmine {
   Future<ProfileInfoModel> getPrifileInfo() async {
     return getEntity<ProfileInfoModel>('http://kleninm.com/api/get-all-mitings',
         (json) => ProfileInfoModel.fromJson(json));
+  }
+
+  Future<HomeModel> getHomeModel() async {
+    return getEntity<HomeModel>('http://kleninm.com/api/get-all-main-page-info',
+        (json) => HomeModel.fromJson(json));
   }
 }

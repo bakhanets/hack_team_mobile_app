@@ -2,11 +2,12 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+import 'package:hack_team_flutter_app/home/bloc/home_bloc.dart';
 import 'package:hack_team_flutter_app/injection_container.dart';
 import 'package:hack_team_flutter_app/profile/data/profile_bloc.dart';
 import 'package:hack_team_flutter_app/routing/bloc/bottom_nav_bar_bloc.dart';
 import 'package:hack_team_flutter_app/screens/redmine_screen.dart';
-import 'package:hack_team_flutter_app/screens/main_screen.dart';
+import 'package:hack_team_flutter_app/home/presentation/pages/main_screen.dart';
 import 'package:hack_team_flutter_app/profile/presentation/pages/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,9 +20,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedItem = 0;
 
+  @override
+  void initState() {
+    sl<HomeBloc>().add(ReadHomeEvent());
+    super.initState();
+  }
+
   void onTapNavBar(int index) {
     if (index == 0) {
       sl<BottomNavBarBloc>().add(ToMainBottomNavBarEvent());
+      sl<HomeBloc>().add(ReadHomeEvent());
     } else if (index == 1) {
       sl<BottomNavBarBloc>().add(ToDocumentBottomNavBarEvent());
     } else {
