@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hack_team_flutter_app/constatns.dart';
 import 'package:hack_team_flutter_app/home/models/home_model.dart';
+import 'package:hack_team_flutter_app/home/presentation/pages/detail_events_page.dart';
 import 'package:hack_team_flutter_app/home/presentation/widgets/news_card.dart';
 
 class MainLoaded extends StatelessWidget {
@@ -32,7 +33,16 @@ class MainLoaded extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0, right: 15.0),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailEventsPage(
+                            events: model.events,
+                          ),
+                        ),
+                      );
+                    },
                     child: Text('Ближайшие события >>'),
                   ),
                 ),
